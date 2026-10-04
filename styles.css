@@ -448,3 +448,74 @@
 }
 }
 }
+/* ===== HERO – VOLLE BREITE ===== */
+
+.hero {
+    width: 100% !important;
+    min-height: 850px !important;
+    background: #050607 !important;
+    overflow: hidden !important;
+}
+
+.hero .hero-media {
+    position: absolute !important;
+
+    top: 94px !important;
+    bottom: 0 !important;
+
+    /* komplette Breite */
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+
+    background-image: url("Hero-Header.jpeg") !important;
+
+    /* Bild füllt die komplette Fläche */
+    background-size: cover !important;
+
+    /* Motiv etwas nach rechts ausrichten */
+    background-position: 65% center !important;
+
+    background-repeat: no-repeat !important;
+
+    transform: none !important;
+    filter: none !important;
+    opacity: 1 !important;
+}
+
+/* weicher Übergang für den Text */
+.hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+
+    background: linear-gradient(
+        90deg,
+        rgba(5,6,7,.94) 0%,
+        rgba(5,6,7,.86) 18%,
+        rgba(5,6,7,.55) 36%,
+        rgba(5,6,7,.18) 55%,
+        rgba(5,6,7,.03) 75%,
+        rgba(5,6,7,0) 100%
+    );
+}
+
+.hero .hero-copy {
+    position: relative !important;
+    z-index: 3 !important;
+}
+
+@media (max-width: 900px) {
+    .hero {
+        min-height: 780px !important;
+    }
+
+    .hero .hero-media {
+        top: 78px !important;
+        width: 100% !important;
+        background-size: cover !important;
+        background-position: 65% center !important;
+    }
+}

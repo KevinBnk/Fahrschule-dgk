@@ -123,11 +123,7 @@ a{
 
 .btn.red,
 .red{
-  background:linear-gradient(
-    135deg,
-    var(--red2),
-    #d80d16
-  );
+  background:linear-gradient(135deg,var(--red2),#d80d16);
   color:#fff!important;
   box-shadow:0 14px 44px rgba(237,28,36,.25);
 }
@@ -154,38 +150,47 @@ a{
   min-height:850px;
   overflow:hidden;
   background:#050607;
+
   display:flex;
   align-items:center;
-  padding:165px clamp(24px,7vw,108px) 145px;
+
+  padding:
+    165px
+    clamp(24px,7vw,108px)
+    145px;
 }
 
-/*
-   HERO-BILD
+/* =========================================================
+   HERO BILD
 
-   Jetzt:
-   - nur leicht nach rechts
-   - etwas kleiner
-   - rechts ausgerichtet
-*/
+   88%  = Größe des Bildes
+   105% = horizontale Position
+
+   Größe und Position können jetzt unabhängig
+   voneinander verändert werden.
+   ========================================================= */
 
 .hero .hero-media{
   position:absolute!important;
 
   top:94px!important;
   bottom:0!important;
-
-  left:45px!important;
+  left:0!important;
   right:0!important;
 
-  width:calc(100% - 45px)!important;
+  width:100%!important;
   height:auto!important;
 
   z-index:0!important;
 
   background-image:url("Hero-Header.jpeg")!important;
 
-  background-size:auto 94%!important;
-  background-position:right center!important;
+  /* BILD WIRKLICH KLEINER */
+  background-size:88% auto!important;
+
+  /* LEICHT NACH RECHTS */
+  background-position:105% center!important;
+
   background-repeat:no-repeat!important;
 
   background-color:#050607!important;
@@ -195,41 +200,44 @@ a{
   opacity:1!important;
 }
 
-/* alte Abdunklung entfernen */
+/* Alte Bild-Abdunklung deaktivieren */
 
 .hero .hero-media::after{
   display:none!important;
 }
 
-/* alten Glow entfernen */
+/* Alten roten Glow deaktivieren */
 
 .hero .shade{
   display:none!important;
 }
 
-/* Abdunklung für Text */
+/* =========================================================
+   HERO ABDUNKLUNG
+   ========================================================= */
 
 .hero::after{
   content:"";
   position:absolute;
   inset:0;
+
   z-index:1;
   pointer-events:none;
 
   background:
     linear-gradient(
       90deg,
-      rgba(5,6,7,.96) 0%,
-      rgba(5,6,7,.90) 17%,
-      rgba(5,6,7,.73) 32%,
-      rgba(5,6,7,.44) 47%,
-      rgba(5,6,7,.18) 60%,
-      rgba(5,6,7,.04) 76%,
-      rgba(5,6,7,0) 100%
+      rgba(5,6,7,.98) 0%,
+      rgba(5,6,7,.93) 12%,
+      rgba(5,6,7,.80) 26%,
+      rgba(5,6,7,.56) 39%,
+      rgba(5,6,7,.28) 52%,
+      rgba(5,6,7,.09) 66%,
+      rgba(5,6,7,0) 82%
     ),
     linear-gradient(
       0deg,
-      rgba(5,6,7,.52) 0%,
+      rgba(5,6,7,.50) 0%,
       transparent 30%
     );
 }
@@ -329,24 +337,32 @@ a{
   right:14px;
   top:50%;
   transform:translateY(-50%);
+
   background:rgba(12,15,18,.84);
+
   border:1px solid var(--line);
   backdrop-filter:blur(14px);
+
   border-radius:8px;
   overflow:hidden;
+
   box-shadow:0 18px 60px rgba(0,0,0,.35);
 }
 
 .quick a{
   width:68px;
   height:68px;
+
   color:#fff;
   text-decoration:none;
+
   display:flex;
   flex-direction:column;
   align-items:center;
   justify-content:center;
+
   border-bottom:1px solid rgba(255,255,255,.08);
+
   gap:6px;
 }
 
@@ -370,24 +386,31 @@ a{
   position:relative;
   width:100%;
   overflow:hidden;
+
   background:#050607;
+
   aspect-ratio:2048/740;
+
   border-top:1px solid rgba(255,255,255,.05);
 }
 
 .classes-reference>img{
   display:block;
-  position:absolute;
-  inset:0 auto auto 0;
+
   width:100%;
   height:auto;
+
+  position:absolute;
+  inset:0 auto auto 0;
 }
 
 .class-hotspot{
   position:absolute;
   z-index:4;
+
   bottom:4%;
   height:49%;
+
   border-radius:3px;
 }
 
@@ -418,34 +441,51 @@ a{
 .marquee{
   width:100%;
   height:72px;
+
   margin:0!important;
   padding:0!important;
+
   display:flex;
   align-items:center;
+
   overflow:hidden!important;
+
   background:#ed1c24!important;
+
   border:0!important;
+
   transform:none!important;
   clip-path:none!important;
 }
 
 .marquee .marquee-track{
   display:flex!important;
+
   flex:none!important;
+
   width:max-content!important;
   min-width:max-content!important;
+
   white-space:nowrap!important;
+
   will-change:transform;
+
   animation:marqueeLoop 24s linear infinite!important;
 }
 
 .marquee .marquee-track span{
   display:block!important;
+
   flex:none!important;
+
   padding-right:0!important;
+
   font-weight:900;
+
   font-size:clamp(20px,2.2vw,34px);
+
   line-height:1;
+
   color:#fff;
 }
 
@@ -477,31 +517,39 @@ a{
 .split h2,
 .faq h2{
   font-size:clamp(40px,4.2vw,62px);
+
   letter-spacing:-.05em;
+
   margin:15px 0 52px;
 }
 
 .steps{
   display:grid;
+
   grid-template-columns:repeat(5,1fr);
+
   position:relative;
 }
 
 .steps:before{
   content:"";
+
   position:absolute;
+
   top:44px;
   left:8%;
   right:8%;
+
   height:1px;
 
-  background:linear-gradient(
-    90deg,
-    transparent,
-    #7a252b 12%,
-    #7a252b 88%,
-    transparent
-  );
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      #7a252b 12%,
+      #7a252b 88%,
+      transparent
+    );
 }
 
 .steps article{
@@ -518,14 +566,22 @@ a{
 .steps b{
   width:74px;
   height:74px;
+
   border:1px solid #394047;
+
   border-radius:50%;
+
   background:#101418;
+
   display:grid;
   place-items:center;
+
   font-size:25px;
+
   margin:12px 0 26px;
+
   position:relative;
+
   box-shadow:0 0 0 8px #080a0c;
 }
 
@@ -545,36 +601,56 @@ a{
 
 .split{
   display:grid;
+
   grid-template-columns:1.05fr .95fr;
+
   min-height:680px;
+
   background:#0c0f12;
+
   border-block:1px solid rgba(255,255,255,.06);
 }
 
 .visual{
-  background:linear-gradient(135deg,#181c20,#080a0c);
+  background:
+    linear-gradient(
+      135deg,
+      #181c20,
+      #080a0c
+    );
+
   display:flex;
   flex-direction:column;
+
   justify-content:flex-end;
+
   padding:72px;
+
   position:relative;
   overflow:hidden;
 }
 
 .visual:after{
   content:"";
+
   position:absolute;
+
   width:520px;
   height:520px;
+
   border:95px solid var(--red);
+
   border-radius:50%;
+
   right:-190px;
   top:-155px;
+
   opacity:.85;
 }
 
 .visual:before{
   content:"";
+
   position:absolute;
   inset:0;
 
@@ -640,12 +716,22 @@ a{
 
 .success-grid article{
   min-height:300px;
+
   padding:34px;
+
   border:1px solid #262b30;
-  background:linear-gradient(145deg,#171b1f,#0b0d0f);
+
+  background:
+    linear-gradient(
+      145deg,
+      #171b1f,
+      #0b0d0f
+    );
+
   display:flex;
   flex-direction:column;
   justify-content:flex-end;
+
   transition:.3s;
 }
 
@@ -695,6 +781,7 @@ a{
   list-style:none;
   font-size:18px;
   font-weight:700;
+
   display:flex;
   justify-content:space-between;
 }
@@ -710,6 +797,7 @@ a{
 
 .contact{
   text-align:center;
+
   padding:135px 20px;
 
   background:
@@ -742,10 +830,14 @@ a{
 
 footer{
   padding:52px clamp(24px,7vw,108px);
+
   border-top:1px solid #222;
+
   display:flex;
   align-items:center;
+
   gap:30px;
+
   color:#777;
   font-size:12px;
 }
@@ -756,6 +848,7 @@ footer img{
 
 footer div{
   margin-left:auto;
+
   display:flex;
   gap:20px;
 }
@@ -771,7 +864,9 @@ footer a{
 
 .reveal{
   opacity:0;
+
   transform:translateY(22px);
+
   transition:.75s cubic-bezier(.2,.8,.2,1);
 }
 
@@ -781,7 +876,7 @@ footer a{
 }
 
 /* =========================================================
-   KLEINERE DESKTOPS
+   KLEINER DESKTOP
    ========================================================= */
 
 @media(max-width:1100px){
@@ -833,16 +928,24 @@ footer a{
 
   .menu{
     display:block;
+
     margin-left:auto;
+
     background:none;
     border:0;
+
     color:#fff;
     font-size:25px;
   }
 
   .hero{
     min-height:780px;
-    padding:125px 25px 115px;
+
+    padding:
+      125px
+      25px
+      115px;
+
     align-items:flex-end;
   }
 
@@ -954,12 +1057,17 @@ footer a{
 
   .hero{
     min-height:760px;
-    padding:112px 20px 95px;
+
+    padding:
+      112px
+      20px
+      95px;
   }
 
   .hero .hero-media{
     left:0!important;
     right:0!important;
+
     width:100%!important;
 
     background-size:cover!important;

@@ -163,11 +163,11 @@ a{
 /* =========================================================
    HERO BILD
 
-   88%  = Größe des Bildes
-   105% = horizontale Position
+   95% = Bildgröße
+   85% = horizontale Position
 
-   Größe und Position können jetzt unabhängig
-   voneinander verändert werden.
+   Das Bild bleibt kleiner und wird etwas weiter
+   nach links verschoben.
    ========================================================= */
 
 .hero .hero-media{
@@ -175,7 +175,7 @@ a{
 
   top:94px!important;
   bottom:0!important;
-  left:20!important;
+  left:0!important;
   right:0!important;
 
   width:100%!important;
@@ -185,11 +185,11 @@ a{
 
   background-image:url("Hero-Header.jpeg")!important;
 
-  /* BILD WIRKLICH KLEINER */
+  /* BILDGRÖSSE */
   background-size:95% auto!important;
 
-  /* LEICHT NACH RECHTS */
-  background-position:90% center!important;
+  /* BILD ETWAS WEITER NACH LINKS */
+  background-position:85% center!important;
 
   background-repeat:no-repeat!important;
 

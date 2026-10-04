@@ -406,7 +406,7 @@
 
 /* HERO – komplettes Auto sichtbar */
 .hero .hero-media {
-    width: 100% !important;
+    width: 90% !important;
     left: 0 !important;
     right: 20 !important;
 

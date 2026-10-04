@@ -30,7 +30,7 @@ a{
 
 /* =========================================================
    HEADER
-========================================================= */
+   ========================================================= */
 
 .topbar{
   height:94px;
@@ -103,7 +103,7 @@ a{
 
 /* =========================================================
    BUTTONS
-========================================================= */
+   ========================================================= */
 
 .btn{
   display:inline-flex;
@@ -123,9 +123,17 @@ a{
 
 .btn.red,
 .red{
-  background:linear-gradient(135deg,var(--red2),#d80d16);
+  background:linear-gradient(
+    135deg,
+    var(--red2),
+    #d80d16
+  );
+
   color:#fff!important;
-  box-shadow:0 14px 44px rgba(237,28,36,.25);
+
+  box-shadow:
+    0 14px 44px
+    rgba(237,28,36,.25);
 }
 
 .btn.outline,
@@ -143,12 +151,13 @@ a{
 
 /* =========================================================
    HERO
-========================================================= */
+   ========================================================= */
 
 .hero{
   position:relative;
-  width:100%;
   min-height:850px;
+  overflow:hidden;
+  background:#050607;
 
   display:flex;
   align-items:center;
@@ -157,101 +166,100 @@ a{
     165px
     clamp(24px,7vw,108px)
     145px;
-
-  overflow:hidden;
-
-  /*
-     WICHTIG:
-     Das Bild liegt direkt auf dem kompletten HERO.
-     Dadurch geht es von links bis rechts.
-  */
-
-  background-image:url("Hero-Header.jpeg");
-  background-size:cover;
-
-  /*
-     BILDAUSSCHNITT WEITER NACH RECHTS
-     50% = Mitte
-     68% = weiter rechts
-     72% = noch weiter rechts
-  */
-  background-position:80% ;
-
-  background-repeat:no-repeat;
-  background-color:#050607;
 }
 
 /*
-   Alte hero-media wird nicht mehr benötigt.
-   Dadurch kann keine alte Regel mehr dazwischenfunken.
+   Hintergrundbild
+
+   Das Bild ist absichtlich breiter als der Hero.
+   Dadurch kann es REAL nach rechts verschoben werden.
 */
 
-.hero-media{
+.hero .hero-media{
+  position:absolute!important;
+
+  top:94px!important;
+  bottom:0!important;
+
+  /*
+     HIER STEUERST DU DIE VERSCHIEBUNG.
+
+     140px = Bild 140px nach rechts.
+  */
+
+  left:140px!important;
+  right:auto!important;
+
+  width:calc(100% + 140px)!important;
+  height:auto!important;
+
+  z-index:0!important;
+
+  background-image:url("Hero-Header.jpeg")!important;
+
+  background-size:cover!important;
+
+  /*
+     Nicht mehr mit Prozent verschieben.
+     Die Verschiebung übernimmt LEFT.
+  */
+
+  background-position:center center!important;
+
+  background-repeat:no-repeat!important;
+
+  background-color:#050607!important;
+
+  filter:none!important;
+  transform:none!important;
+  opacity:1!important;
+}
+
+/* alte Abdunklung des Bildes entfernen */
+
+.hero .hero-media::after{
   display:none!important;
 }
 
-/* Rasterstruktur sehr dezent */
+/* alten roten Glow deaktivieren */
 
-.hero:before{
-  content:"";
-  position:absolute;
-  inset:0;
-
-  background:
-    linear-gradient(
-      rgba(255,255,255,.018) 1px,
-      transparent 1px
-    ),
-    linear-gradient(
-      90deg,
-      rgba(255,255,255,.018) 1px,
-      transparent 1px
-    );
-
-  background-size:72px 72px;
-
-  z-index:1;
-  pointer-events:none;
+.hero .shade{
+  display:none!important;
 }
 
 /*
-   Abdunklung links für perfekte Lesbarkeit.
-   Das Foto bleibt rechts deutlich sichtbar.
+   Abdunklung für die Lesbarkeit.
+
+   Links stärker.
+   Rechts praktisch transparent.
 */
 
-.hero:after{
+.hero::after{
   content:"";
   position:absolute;
   inset:0;
+
   z-index:1;
   pointer-events:none;
 
   background:
-
     linear-gradient(
       90deg,
-
-      rgba(5,6,7,.91) 0%,
-      rgba(5,6,7,.84) 13%,
-      rgba(5,6,7,.66) 29%,
-      rgba(5,6,7,.34) 45%,
-      rgba(5,6,7,.10) 62%,
-      rgba(5,6,7,.02) 100%
+      rgba(5,6,7,.94) 0%,
+      rgba(5,6,7,.86) 20%,
+      rgba(5,6,7,.67) 35%,
+      rgba(5,6,7,.36) 49%,
+      rgba(5,6,7,.12) 64%,
+      rgba(5,6,7,0) 82%
     ),
-
     linear-gradient(
       0deg,
-      rgba(5,6,7,.45) 0%,
-      rgba(5,6,7,.10) 28%,
-      transparent 50%
+      rgba(5,6,7,.48) 0%,
+      transparent 30%
     );
 }
 
-.shade{
-  display:none!important;
-}
-
-/* Hero Text */
+/* HERO TEXT */
 
 .hero-copy{
   position:relative;
@@ -294,8 +302,6 @@ a{
   margin:34px 0;
 }
 
-/* Hero Fakten */
-
 .proof{
   display:flex;
   flex-wrap:wrap;
@@ -316,7 +322,7 @@ a{
   color:#fff;
 }
 
-/* Scroll Hinweis */
+/* SCROLL */
 
 .scroll{
   position:absolute;
@@ -324,6 +330,7 @@ a{
   bottom:28px;
   left:50%;
   transform:translateX(-50%);
+
   color:#fff;
   text-decoration:none;
   text-align:center;
@@ -339,24 +346,29 @@ a{
 }
 
 /* =========================================================
-   SCHNELLAUSWAHL RECHTS
-========================================================= */
+   QUICK CONTACT
+   ========================================================= */
 
 .quick{
   position:fixed;
   z-index:30;
+
   right:14px;
   top:50%;
+
   transform:translateY(-50%);
 
   background:rgba(12,15,18,.84);
+
   border:1px solid var(--line);
   backdrop-filter:blur(14px);
 
   border-radius:8px;
   overflow:hidden;
 
-  box-shadow:0 18px 60px rgba(0,0,0,.35);
+  box-shadow:
+    0 18px 60px
+    rgba(0,0,0,.35);
 }
 
 .quick a{
@@ -368,10 +380,13 @@ a{
 
   display:flex;
   flex-direction:column;
+
   align-items:center;
   justify-content:center;
 
-  border-bottom:1px solid rgba(255,255,255,.08);
+  border-bottom:
+    1px solid
+    rgba(255,255,255,.08);
 
   gap:6px;
 }
@@ -389,36 +404,45 @@ a{
 }
 
 /* =========================================================
-   FÜHRERSCHEINKLASSEN – REFERENZGRAFIK
-========================================================= */
+   FÜHRERSCHEINKLASSEN – REFERENZBILD
+   ========================================================= */
 
 .classes-reference{
   position:relative;
+
   width:100%;
+
   overflow:hidden;
 
   background:#050607;
 
   aspect-ratio:2048/740;
 
-  border-top:1px solid rgba(255,255,255,.05);
+  border-top:
+    1px solid
+    rgba(255,255,255,.05);
 }
 
 .classes-reference>img{
   display:block;
 
+  position:absolute;
+
+  inset:0 auto auto 0;
+
   width:100%;
   height:auto;
-
-  position:absolute;
-  inset:0 auto auto 0;
 }
+
+/* Klickflächen */
 
 .class-hotspot{
   position:absolute;
+
   z-index:4;
 
   bottom:4%;
+
   height:49%;
 
   border-radius:3px;
@@ -445,49 +469,59 @@ a{
 }
 
 /* =========================================================
-   ROTER LAUFBANNER
-========================================================= */
+   MARQUEE
+   ========================================================= */
 
 .marquee{
   width:100%;
 
-  margin:0;
-  padding:0;
-
   height:72px;
+
+  margin:0!important;
+  padding:0!important;
 
   display:flex;
   align-items:center;
 
-  overflow:hidden;
+  overflow:hidden!important;
 
-  background:#ed1c24;
+  background:#ed1c24!important;
 
-  border:0;
+  border:0!important;
+
+  transform:none!important;
+  clip-path:none!important;
 }
 
 .marquee .marquee-track{
-  display:flex;
+  display:flex!important;
 
-  flex:none;
+  flex:none!important;
 
-  width:max-content;
-  min-width:max-content;
+  width:max-content!important;
+  min-width:max-content!important;
 
-  white-space:nowrap;
+  white-space:nowrap!important;
 
   will-change:transform;
 
-  animation:marqueeLoop 24s linear infinite;
+  animation:
+    marqueeLoop
+    24s
+    linear
+    infinite!important;
 }
 
 .marquee .marquee-track span{
-  display:block;
-  flex:none;
+  display:block!important;
+  flex:none!important;
+
+  padding-right:0!important;
 
   font-weight:900;
 
-  font-size:clamp(20px,2.2vw,34px);
+  font-size:
+    clamp(20px,2.2vw,34px);
 
   line-height:1;
 
@@ -507,32 +541,39 @@ a{
 
 /* =========================================================
    ABLAUF
-========================================================= */
+   ========================================================= */
 
 .journey,
 .success,
 .faq{
-  padding:125px clamp(24px,7vw,108px);
+  padding:
+    125px
+    clamp(24px,7vw,108px);
 }
 
 .journey{
-  padding-top:72px;
+  padding-top:72px!important;
 }
 
 .section-title h2,
 .split h2,
 .faq h2{
-  font-size:clamp(40px,4.2vw,62px);
+  font-size:
+    clamp(40px,4.2vw,62px);
 
   letter-spacing:-.05em;
 
-  margin:15px 0 52px;
+  margin:
+    15px
+    0
+    52px;
 }
 
 .steps{
   display:grid;
 
-  grid-template-columns:repeat(5,1fr);
+  grid-template-columns:
+    repeat(5,1fr);
 
   position:relative;
 }
@@ -548,18 +589,18 @@ a{
 
   height:1px;
 
-  background:linear-gradient(
-    90deg,
-    transparent,
-    #7a252b 12%,
-    #7a252b 88%,
-    transparent
-  );
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      #7a252b 12%,
+      #7a252b 88%,
+      transparent
+    );
 }
 
 .steps article{
   position:relative;
-
   padding:0 22px;
 }
 
@@ -567,7 +608,6 @@ a{
   color:var(--red);
 
   font-style:normal;
-
   font-weight:800;
 }
 
@@ -575,7 +615,9 @@ a{
   width:74px;
   height:74px;
 
-  border:1px solid #394047;
+  border:
+    1px solid
+    #394047;
 
   border-radius:50%;
 
@@ -586,11 +628,16 @@ a{
 
   font-size:25px;
 
-  margin:12px 0 26px;
+  margin:
+    12px
+    0
+    26px;
 
   position:relative;
 
-  box-shadow:0 0 0 8px #080a0c;
+  box-shadow:
+    0 0 0 8px
+    #080a0c;
 }
 
 .steps h3{
@@ -607,22 +654,30 @@ a{
 
 /* =========================================================
    ÜBER UNS
-========================================================= */
+   ========================================================= */
 
 .split{
   display:grid;
 
-  grid-template-columns:1.05fr .95fr;
+  grid-template-columns:
+    1.05fr .95fr;
 
   min-height:680px;
 
   background:#0c0f12;
 
-  border-block:1px solid rgba(255,255,255,.06);
+  border-block:
+    1px solid
+    rgba(255,255,255,.06);
 }
 
 .visual{
-  background:linear-gradient(135deg,#181c20,#080a0c);
+  background:
+    linear-gradient(
+      135deg,
+      #181c20,
+      #080a0c
+    );
 
   display:flex;
   flex-direction:column;
@@ -632,7 +687,6 @@ a{
   padding:72px;
 
   position:relative;
-
   overflow:hidden;
 }
 
@@ -644,7 +698,9 @@ a{
   width:520px;
   height:520px;
 
-  border:95px solid var(--red);
+  border:
+    95px solid
+    var(--red);
 
   border-radius:50%;
 
@@ -671,7 +727,8 @@ a{
       transparent 1px
     );
 
-  background-size:54px 54px;
+  background-size:
+    54px 54px;
 }
 
 .visual span{
@@ -696,13 +753,11 @@ a{
 
 .copy{
   padding:100px 11%;
-
   align-self:center;
 }
 
 .copy p{
   color:#aeb2b5;
-
   line-height:1.78;
 }
 
@@ -720,7 +775,7 @@ a{
 
 /* =========================================================
    ERFOLGE
-========================================================= */
+   ========================================================= */
 
 .success{
   background:#07090b;
@@ -729,7 +784,8 @@ a{
 .success-grid{
   display:grid;
 
-  grid-template-columns:repeat(3,1fr);
+  grid-template-columns:
+    repeat(3,1fr);
 
   gap:18px;
 }
@@ -739,13 +795,16 @@ a{
 
   padding:34px;
 
-  border:1px solid #262b30;
+  border:
+    1px solid
+    #262b30;
 
-  background:linear-gradient(
-    145deg,
-    #171b1f,
-    #0b0d0f
-  );
+  background:
+    linear-gradient(
+      145deg,
+      #171b1f,
+      #0b0d0f
+    );
 
   display:flex;
 
@@ -759,15 +818,18 @@ a{
 .success-grid article:hover{
   border-color:#713036;
 
-  transform:translateY(-5px);
+  transform:
+    translateY(-5px);
 }
 
 .success-grid article:nth-child(2){
-  transform:translateY(28px);
+  transform:
+    translateY(28px);
 }
 
 .success-grid article:nth-child(2):hover{
-  transform:translateY(22px);
+  transform:
+    translateY(22px);
 }
 
 .success-grid strong{
@@ -776,30 +838,35 @@ a{
 
 .success-grid p{
   color:#999;
-
   line-height:1.55;
 }
 
 /* =========================================================
    FAQ
-========================================================= */
+   ========================================================= */
 
 .faq{
   display:grid;
 
-  grid-template-columns:.7fr 1.3fr;
+  grid-template-columns:
+    .7fr 1.3fr;
 
   gap:90px;
 }
 
 .accord details{
-  border-top:1px solid #333;
+  border-top:
+    1px solid
+    #333;
 
-  padding:25px 0;
+  padding:
+    25px 0;
 }
 
 .accord details:last-child{
-  border-bottom:1px solid #333;
+  border-bottom:
+    1px solid
+    #333;
 }
 
 .accord summary{
@@ -813,7 +880,8 @@ a{
 
   display:flex;
 
-  justify-content:space-between;
+  justify-content:
+    space-between;
 }
 
 .accord p{
@@ -824,12 +892,13 @@ a{
 
 /* =========================================================
    KONTAKT
-========================================================= */
+   ========================================================= */
 
 .contact{
   text-align:center;
 
-  padding:135px 20px;
+  padding:
+    135px 20px;
 
   background:
     radial-gradient(
@@ -838,11 +907,14 @@ a{
       #090b0d 50%
     );
 
-  border-top:1px solid rgba(255,255,255,.05);
+  border-top:
+    1px solid
+    rgba(255,255,255,.05);
 }
 
 .contact h2{
-  font-size:clamp(48px,5.5vw,76px);
+  font-size:
+    clamp(48px,5.5vw,76px);
 
   line-height:.96;
 
@@ -859,12 +931,16 @@ a{
 
 /* =========================================================
    FOOTER
-========================================================= */
+   ========================================================= */
 
 footer{
-  padding:52px clamp(24px,7vw,108px);
+  padding:
+    52px
+    clamp(24px,7vw,108px);
 
-  border-top:1px solid #222;
+  border-top:
+    1px solid
+    #222;
 
   display:flex;
 
@@ -896,15 +972,18 @@ footer a{
 }
 
 /* =========================================================
-   ANIMATIONEN
-========================================================= */
+   REVEAL ANIMATION
+   ========================================================= */
 
 .reveal{
   opacity:0;
 
-  transform:translateY(22px);
+  transform:
+    translateY(22px);
 
-  transition:.75s cubic-bezier(.2,.8,.2,1);
+  transition:
+    .75s
+    cubic-bezier(.2,.8,.2,1);
 }
 
 .reveal.show{
@@ -915,7 +994,7 @@ footer a{
 
 /* =========================================================
    TABLET
-========================================================= */
+   ========================================================= */
 
 @media(max-width:1100px){
 
@@ -945,15 +1024,16 @@ footer a{
 }
 
 /* =========================================================
-   IPAD / MOBILE
-========================================================= */
+   TABLET / IPAD
+   ========================================================= */
 
 @media(max-width:900px){
 
   .topbar{
     height:78px;
 
-    padding:0 22px;
+    padding:
+      0 22px;
   }
 
   .logo img{
@@ -988,30 +1068,38 @@ footer a{
       115px;
 
     align-items:flex-end;
-
-    /*
-       Tablet-Bildausschnitt
-    */
-
-    background-position:68% center;
   }
 
-  .hero:after{
-    background:
+  /*
+     Auf Tablet wieder normale Breite,
+     damit nichts abgeschnitten wird.
+  */
 
+  .hero .hero-media{
+    top:78px!important;
+
+    left:0!important;
+
+    width:100%!important;
+
+    background-size:cover!important;
+
+    background-position:
+      70% center!important;
+  }
+
+  .hero::after{
+    background:
       linear-gradient(
         0deg,
         rgba(5,6,7,.96) 0%,
-        rgba(5,6,7,.74) 40%,
-        rgba(5,6,7,.20) 78%,
-        rgba(5,6,7,.08) 100%
+        rgba(5,6,7,.72) 42%,
+        rgba(5,6,7,.16) 100%
       ),
-
       linear-gradient(
         90deg,
-        rgba(5,6,7,.72) 0%,
-        rgba(5,6,7,.38) 55%,
-        rgba(5,6,7,.12) 100%
+        rgba(5,6,7,.70) 0%,
+        rgba(5,6,7,.30) 100%
       );
   }
 
@@ -1020,7 +1108,8 @@ footer a{
   }
 
   .hero h1{
-    font-size:clamp(56px,10vw,78px);
+    font-size:
+      clamp(56px,10vw,78px);
   }
 
   .lead{
@@ -1046,7 +1135,8 @@ footer a{
 
     left:50%;
 
-    transform:translateX(-50%);
+    transform:
+      translateX(-50%);
   }
 
   .class-hotspot{
@@ -1054,15 +1144,16 @@ footer a{
   }
 
   .marquee{
-    height:62px;
+    height:62px!important;
   }
 
   .journey{
-    padding-top:64px;
+    padding-top:64px!important;
   }
 
   .steps{
-    grid-template-columns:1fr 1fr;
+    grid-template-columns:
+      1fr 1fr;
 
     gap:36px;
   }
@@ -1097,7 +1188,7 @@ footer a{
 
 /* =========================================================
    SMARTPHONE
-========================================================= */
+   ========================================================= */
 
 @media(max-width:560px){
 
@@ -1108,8 +1199,15 @@ footer a{
       112px
       20px
       95px;
+  }
 
-    background-position:68% center;
+  .hero .hero-media{
+    left:0!important;
+
+    width:100%!important;
+
+    background-position:
+      70% center!important;
   }
 
   .hero h1{
@@ -1131,7 +1229,8 @@ footer a{
   .proof{
     display:grid;
 
-    grid-template-columns:1fr 1fr;
+    grid-template-columns:
+      1fr 1fr;
 
     gap:18px;
   }
@@ -1161,11 +1260,13 @@ footer a{
   .journey,
   .success,
   .faq{
-    padding:82px 22px;
+    padding:
+      82px 22px;
   }
 
   .visual{
-    padding:46px 24px;
+    padding:
+      46px 24px;
 
     min-height:430px;
   }
@@ -1175,11 +1276,13 @@ footer a{
   }
 
   .copy{
-    padding:72px 24px;
+    padding:
+      72px 24px;
   }
 
   .contact{
-    padding:95px 20px;
+    padding:
+      95px 20px;
   }
 
   .contact h2{

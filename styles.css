@@ -435,15 +435,17 @@
 .hero .hero-media {
     background-position: calc(50% + 180px) center !important;
 }
-/* HERO – finale Bildposition */
+/* HERO – großflächig + Auto weiter rechts */
 .hero .hero-media {
     left: 0 !important;
     right: 0 !important;
     width: 100% !important;
 
-    background-size: auto 92% !important;
-    background-position: calc(50% + 250px) center !important;
+    background-image: url("Hero-Header.jpeg") !important;
+    background-size: cover !important;
+    background-position: 78% center !important;
     background-repeat: no-repeat !important;
     background-color: #050607 !important;
+}
 }
 

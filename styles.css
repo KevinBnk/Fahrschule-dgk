@@ -315,7 +315,7 @@
     bottom: 0 !important;
     left: 0 !important;
 
-    width: 100% !important;
+    width: 90% !important;
     height: auto !important;
 
     z-index: 0 !important;
@@ -404,16 +404,29 @@
     }
 }
 
-/* HERO – komplettes Auto sichtbar */
+/* ===== HERO FOTO WIRKLICH KLEINER ===== */
+
 .hero .hero-media {
-    width: 90% !important;
+    top: 94px !important;
+    bottom: 0 !important;
     left: 0 !important;
-    right: 20 !important;
+    right: 0 !important;
+    width: 100% !important;
 
     background-image: url("Hero-Header.jpeg") !important;
-    background-size: cover !important;
-    background-position: center center !important;
+
+    /* DAS macht das Foto wirklich kleiner */
+    background-size: auto 92% !important;
+
+    /* Foto nach rechts */
+    background-position: 92% center !important;
+
     background-repeat: no-repeat !important;
+    background-color: #050607 !important;
+
+    transform: none !important;
+    filter: none !important;
+}
 }
 }
 }

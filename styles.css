@@ -385,7 +385,7 @@
     .hero .hero-media {
         top: 78px !important;
         width: 100% !important;
-        background-position: center center !important;
+        background-position: 60% 58% !important;
     }
 
     .hero::after {

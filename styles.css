@@ -406,8 +406,8 @@
 
 /* HERO BILD – Desktop + iPad Querformat */
 .hero .hero-media {
-    width: 115% !important;
-    left: 0 !important;
+    width: 100% !important;
+    left: 20 !important;
     right: auto !important;
 
     background-size: cover !important;

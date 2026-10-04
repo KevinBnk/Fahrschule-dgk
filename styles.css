@@ -435,7 +435,7 @@
 .hero .hero-media {
     background-position: calc(50% + 180px) center !important;
 }
-/* HERO – großflächig + Auto weiter rechts */
+/* HERO – FINAL */
 .hero .hero-media {
     left: 0 !important;
     right: 0 !important;
@@ -445,7 +445,7 @@
     background-size: cover !important;
     background-position: 78% center !important;
     background-repeat: no-repeat !important;
-    background-color: #050607 !important;
+}
 }
 }
 

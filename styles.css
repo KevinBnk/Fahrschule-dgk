@@ -435,3 +435,12 @@
 .hero .hero-media {
     background-position: calc(50% + 180px) center !important;
 }
+
+/* HERO – komplette Bildebene nach rechts verschieben */
+.hero .hero-media {
+    left: 160px !important;
+    right: -160px !important;
+    width: auto !important;
+
+    background-position: center center !important;
+}

@@ -431,3 +431,7 @@
 }
 }
 }
+/* HERO – Foto weiter nach rechts */
+.hero .hero-media {
+    background-position: calc(50% + 160px) center !important;
+}

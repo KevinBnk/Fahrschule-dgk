@@ -236,3 +236,63 @@
   .classes-reference{min-height:560px}
   .classes-reference>img{width:245%}
 }
+
+
+/* ===== HERO HEADER – DGK ===== */
+
+.hero {
+    position: relative;
+    min-height: calc(100vh - 96px);
+    overflow: hidden;
+    background: #050607;
+}
+
+.hero-media {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+
+    background-image: url("Hero-Header.jpeg") !important;
+    background-size: cover !important;
+    background-position: center center !important;
+    background-repeat: no-repeat !important;
+}
+
+.hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(5, 6, 7, 0.92) 0%,
+            rgba(5, 6, 7, 0.78) 25%,
+            rgba(5, 6, 7, 0.40) 48%,
+            rgba(5, 6, 7, 0.08) 72%,
+            rgba(5, 6, 7, 0.12) 100%
+        );
+}
+
+.hero-copy {
+    position: relative;
+    z-index: 2;
+}
+
+@media (max-width: 900px) {
+    .hero-media {
+        background-position: 58% center !important;
+    }
+
+    .hero::after {
+        background:
+            linear-gradient(
+                90deg,
+                rgba(5, 6, 7, 0.94) 0%,
+                rgba(5, 6, 7, 0.74) 55%,
+                rgba(5, 6, 7, 0.28) 100%
+            );
+    }
+}

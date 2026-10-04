@@ -30,7 +30,7 @@ a{
 
 
 /* =========================================================
-   HEADER / NAVIGATION
+   HEADER
    ========================================================= */
 
 .topbar{
@@ -48,12 +48,11 @@ a{
 
   border-bottom:1px solid rgba(255,255,255,.08);
 
-  background:
-    linear-gradient(
-      180deg,
-      rgba(4,5,6,.94),
-      rgba(4,5,6,.78)
-    );
+  background:linear-gradient(
+    180deg,
+    rgba(4,5,6,.94),
+    rgba(4,5,6,.78)
+  );
 
   backdrop-filter:blur(18px);
 }
@@ -83,15 +82,11 @@ a{
 .topbar nav a::after{
   content:"";
   position:absolute;
-
   left:0;
   right:100%;
   bottom:-9px;
-
   height:2px;
-
   background:var(--red);
-
   transition:.25s;
 }
 
@@ -103,7 +98,6 @@ a{
   display:flex;
   align-items:center;
   gap:22px;
-
   font-size:14px;
 }
 
@@ -128,9 +122,7 @@ a{
   padding:17px 25px;
 
   border-radius:4px;
-
   text-decoration:none !important;
-
   font-weight:800 !important;
 
   transition:.25s;
@@ -144,17 +136,15 @@ a{
 
 .btn.red,
 .red{
-  background:
-    linear-gradient(
-      135deg,
-      var(--red2),
-      #d80d16
-    );
+  background:linear-gradient(
+    135deg,
+    var(--red2),
+    #d80d16
+  );
 
   color:#fff !important;
 
-  box-shadow:
-    0 14px 44px rgba(237,28,36,.25);
+  box-shadow:0 14px 44px rgba(237,28,36,.25);
 }
 
 .btn.outline,
@@ -176,14 +166,12 @@ a{
 
 /* =========================================================
    HERO
-   FOTO LÄUFT ÜBER DIE KOMPLETTE BREITE
    ========================================================= */
 
 .hero{
   position:relative;
 
   width:100%;
-
   min-height:850px;
 
   display:flex;
@@ -202,15 +190,11 @@ a{
 
 /* =========================================================
    HERO FOTO
+   VOLLE BREITE VON LINKS BIS RECHTS
    ========================================================= */
 
 .hero-media{
   position:absolute;
-
-  /*
-     Navigation bleibt oben.
-     Das Foto beginnt direkt darunter.
-  */
 
   top:94px;
   left:0;
@@ -218,25 +202,23 @@ a{
   bottom:0;
 
   width:100%;
+  height:auto;
 
   z-index:0;
 
   background-image:url("Hero-Header.jpeg");
 
   /*
-     Cover = komplette Hero-Fläche.
-     Keine rechte Bildbox mehr.
+     FOTO FÜLLT DIE GESAMTE HERO-FLÄCHE
   */
-
   background-size:cover;
 
   /*
-     Motiv leicht nach rechts.
-     Dadurch bleibt das Auto rechts,
-     aber das Foto läuft trotzdem links weiter.
+     Motiv mittig.
+     Das Foto selbst geht trotzdem
+     von links bis rechts.
   */
-
-  background-position:68% center;
+  background-position:center center;
 
   background-repeat:no-repeat;
 
@@ -248,14 +230,14 @@ a{
 }
 
 
-/* keine zweite Abdunklung auf hero-media */
+/* Alte Ebene deaktivieren */
 
 .hero-media::after{
   display:none;
 }
 
 
-/* alten Glow aus HTML deaktivieren */
+/* Alten Glow deaktivieren */
 
 .hero .shade{
   display:none;
@@ -263,8 +245,8 @@ a{
 
 
 /* =========================================================
-   HERO DUNKLER VERLAUF
-   Das Foto liegt auch links darunter!
+   HERO OVERLAY
+   FOTO BLEIBT AUCH LINKS SICHTBAR
    ========================================================= */
 
 .hero::after{
@@ -280,34 +262,43 @@ a{
 
   background:
 
+    /*
+       Links dunkler für die Schrift,
+       aber NICHT mehr komplett schwarz.
+    */
+
     linear-gradient(
       90deg,
 
-      rgba(5,6,7,.97) 0%,
+      rgba(5,6,7,.78) 0%,
 
-      rgba(5,6,7,.94) 15%,
+      rgba(5,6,7,.72) 12%,
 
-      rgba(5,6,7,.88) 25%,
+      rgba(5,6,7,.62) 25%,
 
-      rgba(5,6,7,.70) 36%,
+      rgba(5,6,7,.46) 38%,
 
-      rgba(5,6,7,.42) 48%,
+      rgba(5,6,7,.25) 52%,
 
-      rgba(5,6,7,.18) 60%,
+      rgba(5,6,7,.10) 67%,
 
-      rgba(5,6,7,.05) 75%,
+      rgba(5,6,7,.02) 82%,
 
-      rgba(5,6,7,0) 100%
+      transparent 100%
     ),
+
+    /*
+       Unterer Verlauf
+    */
 
     linear-gradient(
       0deg,
 
-      rgba(5,6,7,.55) 0%,
+      rgba(5,6,7,.42) 0%,
 
-      rgba(5,6,7,.18) 25%,
+      rgba(5,6,7,.10) 24%,
 
-      transparent 45%
+      transparent 42%
     );
 }
 
@@ -364,6 +355,11 @@ a{
   max-width:620px;
 }
 
+
+/* =========================================================
+   HERO BUTTONS
+   ========================================================= */
+
 .actions{
   display:flex;
 
@@ -374,7 +370,7 @@ a{
 
 
 /* =========================================================
-   HERO VORTEILE
+   HERO INFOS
    ========================================================= */
 
 .proof{
@@ -407,7 +403,7 @@ a{
 
 
 /* =========================================================
-   SCROLL HINWEIS
+   SCROLL
    ========================================================= */
 
 .scroll{
@@ -444,7 +440,7 @@ a{
 
 
 /* =========================================================
-   RECHTE KONTAKTLEISTE
+   SCHNELLAUSWAHL RECHTS
    ========================================================= */
 
 .quick{
@@ -468,8 +464,7 @@ a{
 
   overflow:hidden;
 
-  box-shadow:
-    0 18px 60px rgba(0,0,0,.35);
+  box-shadow:0 18px 60px rgba(0,0,0,.35);
 }
 
 .quick a{
@@ -488,8 +483,7 @@ a{
 
   justify-content:center;
 
-  border-bottom:
-    1px solid rgba(255,255,255,.08);
+  border-bottom:1px solid rgba(255,255,255,.08);
 
   gap:6px;
 }
@@ -508,7 +502,7 @@ a{
 
 
 /* =========================================================
-   FÜHRERSCHEINKLASSEN REFERENZBILD
+   FÜHRERSCHEINKLASSEN
    ========================================================= */
 
 .classes-reference{
@@ -520,10 +514,9 @@ a{
 
   background:#050607;
 
-  aspect-ratio:2048/740;
+  aspect-ratio:2048 / 740;
 
-  border-top:
-    1px solid rgba(255,255,255,.05);
+  border-top:1px solid rgba(255,255,255,.05);
 }
 
 .classes-reference > img{
@@ -553,35 +546,33 @@ a{
 
 .hotspot-auto{
   left:3.5%;
-
   width:31%;
 }
 
 .hotspot-bike{
   left:35.7%;
-
   width:28.7%;
 }
 
 .hotspot-trailer{
   left:65.8%;
-
   width:30.8%;
 }
 
 .class-hotspot:focus-visible{
-  outline:
-    2px solid #ed1c24;
+  outline:2px solid #ed1c24;
 
   outline-offset:-4px;
 }
 
 
 /* =========================================================
-   TICKER
+   ROTER TICKER
    ========================================================= */
 
 .marquee{
+  position:relative;
+
   width:100%;
 
   height:72px;
@@ -593,6 +584,8 @@ a{
   overflow:hidden;
 
   background:#ed1c24;
+
+  border:0;
 }
 
 .marquee-track{
@@ -608,17 +601,15 @@ a{
 
   will-change:transform;
 
-  animation:
-    marqueeLoop
-    24s
-    linear
-    infinite;
+  animation:marqueeLoop 24s linear infinite;
 }
 
 .marquee-track span{
   display:block;
 
   flex:none;
+
+  padding:0;
 
   font-weight:900;
 
@@ -642,15 +633,13 @@ a{
 
 
 /* =========================================================
-   ABLAUF
+   ALLGEMEINE SEKTIONEN
    ========================================================= */
 
 .journey,
 .success,
 .faq{
-  padding:
-    125px
-    clamp(24px,7vw,108px);
+  padding:125px clamp(24px,7vw,108px);
 }
 
 .journey{
@@ -660,20 +649,22 @@ a{
 .section-title h2,
 .split h2,
 .faq h2{
-  font-size:
-    clamp(40px,4.2vw,62px);
+  font-size:clamp(40px,4.2vw,62px);
 
   letter-spacing:-.05em;
 
-  margin:
-    15px 0 52px;
+  margin:15px 0 52px;
 }
+
+
+/* =========================================================
+   ABLAUF
+   ========================================================= */
 
 .steps{
   display:grid;
 
-  grid-template-columns:
-    repeat(5,1fr);
+  grid-template-columns:repeat(5,1fr);
 
   position:relative;
 }
@@ -686,19 +677,17 @@ a{
   top:44px;
 
   left:8%;
-
   right:8%;
 
   height:1px;
 
-  background:
-    linear-gradient(
-      90deg,
-      transparent,
-      #7a252b 12%,
-      #7a252b 88%,
-      transparent
-    );
+  background:linear-gradient(
+    90deg,
+    transparent,
+    #7a252b 12%,
+    #7a252b 88%,
+    transparent
+  );
 }
 
 .steps article{
@@ -719,8 +708,7 @@ a{
   width:74px;
   height:74px;
 
-  border:
-    1px solid #394047;
+  border:1px solid #394047;
 
   border-radius:50%;
 
@@ -732,13 +720,11 @@ a{
 
   font-size:25px;
 
-  margin:
-    12px 0 26px;
+  margin:12px 0 26px;
 
   position:relative;
 
-  box-shadow:
-    0 0 0 8px #080a0c;
+  box-shadow:0 0 0 8px #080a0c;
 }
 
 .steps h3{
@@ -761,24 +747,21 @@ a{
 .split{
   display:grid;
 
-  grid-template-columns:
-    1.05fr .95fr;
+  grid-template-columns:1.05fr .95fr;
 
   min-height:680px;
 
   background:#0c0f12;
 
-  border-block:
-    1px solid rgba(255,255,255,.06);
+  border-block:1px solid rgba(255,255,255,.06);
 }
 
 .visual{
-  background:
-    linear-gradient(
-      135deg,
-      #181c20,
-      #080a0c
-    );
+  background:linear-gradient(
+    135deg,
+    #181c20,
+    #080a0c
+  );
 
   display:flex;
 
@@ -801,8 +784,7 @@ a{
   width:520px;
   height:520px;
 
-  border:
-    95px solid var(--red);
+  border:95px solid var(--red);
 
   border-radius:50%;
 
@@ -821,20 +803,17 @@ a{
   inset:0;
 
   background:
-
     linear-gradient(
       rgba(255,255,255,.025) 1px,
       transparent 1px
     ),
-
     linear-gradient(
       90deg,
       rgba(255,255,255,.025) 1px,
       transparent 1px
     );
 
-  background-size:
-    54px 54px;
+  background-size:54px 54px;
 }
 
 .visual span{
@@ -893,8 +872,7 @@ a{
 .success-grid{
   display:grid;
 
-  grid-template-columns:
-    repeat(3,1fr);
+  grid-template-columns:repeat(3,1fr);
 
   gap:18px;
 }
@@ -904,15 +882,13 @@ a{
 
   padding:34px;
 
-  border:
-    1px solid #262b30;
+  border:1px solid #262b30;
 
-  background:
-    linear-gradient(
-      145deg,
-      #171b1f,
-      #0b0d0f
-    );
+  background:linear-gradient(
+    145deg,
+    #171b1f,
+    #0b0d0f
+  );
 
   display:flex;
 
@@ -926,18 +902,15 @@ a{
 .success-grid article:hover{
   border-color:#713036;
 
-  transform:
-    translateY(-5px);
+  transform:translateY(-5px);
 }
 
 .success-grid article:nth-child(2){
-  transform:
-    translateY(28px);
+  transform:translateY(28px);
 }
 
 .success-grid article:nth-child(2):hover{
-  transform:
-    translateY(22px);
+  transform:translateY(22px);
 }
 
 .success-grid strong{
@@ -958,23 +931,19 @@ a{
 .faq{
   display:grid;
 
-  grid-template-columns:
-    .7fr 1.3fr;
+  grid-template-columns:.7fr 1.3fr;
 
   gap:90px;
 }
 
 .accord details{
-  border-top:
-    1px solid #333;
+  border-top:1px solid #333;
 
-  padding:
-    25px 0;
+  padding:25px 0;
 }
 
 .accord details:last-child{
-  border-bottom:
-    1px solid #333;
+  border-bottom:1px solid #333;
 }
 
 .accord summary{
@@ -1005,23 +974,19 @@ a{
 .contact{
   text-align:center;
 
-  padding:
-    135px 20px;
+  padding:135px 20px;
 
-  background:
-    radial-gradient(
-      circle at 50% 115%,
-      #77121a,
-      #090b0d 50%
-    );
+  background:radial-gradient(
+    circle at 50% 115%,
+    #77121a,
+    #090b0d 50%
+  );
 
-  border-top:
-    1px solid rgba(255,255,255,.05);
+  border-top:1px solid rgba(255,255,255,.05);
 }
 
 .contact h2{
-  font-size:
-    clamp(48px,5.5vw,76px);
+  font-size:clamp(48px,5.5vw,76px);
 
   line-height:.96;
 
@@ -1042,12 +1007,9 @@ a{
    ========================================================= */
 
 footer{
-  padding:
-    52px
-    clamp(24px,7vw,108px);
+  padding:52px clamp(24px,7vw,108px);
 
-  border-top:
-    1px solid #222;
+  border-top:1px solid #222;
 
   display:flex;
 
@@ -1080,17 +1042,15 @@ footer a{
 
 
 /* =========================================================
-   SCROLL ANIMATION
+   REVEAL ANIMATION
    ========================================================= */
 
 .reveal{
   opacity:0;
 
-  transform:
-    translateY(22px);
+  transform:translateY(22px);
 
-  transition:
-    .75s cubic-bezier(.2,.8,.2,1);
+  transition:.75s cubic-bezier(.2,.8,.2,1);
 }
 
 .reveal.show{
@@ -1101,7 +1061,7 @@ footer a{
 
 
 /* =========================================================
-   TABLET
+   BIS 1100 PX
    ========================================================= */
 
 @media(max-width:1100px){
@@ -1124,13 +1084,16 @@ footer a{
 }
 
 
+/* =========================================================
+   TABLET / IPAD
+   ========================================================= */
+
 @media(max-width:900px){
 
   .topbar{
     height:78px;
 
-    padding:
-      0 22px;
+    padding:0 22px;
   }
 
   .logo img{
@@ -1157,7 +1120,7 @@ footer a{
   }
 
 
-  /* HERO TABLET */
+  /* HERO */
 
   .hero{
     min-height:780px;
@@ -1174,15 +1137,13 @@ footer a{
     top:78px;
 
     left:0;
-
     right:0;
 
     width:100%;
 
     background-size:cover;
 
-    background-position:
-      68% center;
+    background-position:65% center;
   }
 
   .hero::after{
@@ -1191,21 +1152,21 @@ footer a{
       linear-gradient(
         0deg,
 
-        rgba(5,6,7,.97) 0%,
+        rgba(5,6,7,.90) 0%,
 
-        rgba(5,6,7,.88) 35%,
+        rgba(5,6,7,.70) 32%,
 
-        rgba(5,6,7,.40) 65%,
+        rgba(5,6,7,.28) 65%,
 
-        rgba(5,6,7,.08) 100%
+        rgba(5,6,7,.04) 100%
       ),
 
       linear-gradient(
         90deg,
 
-        rgba(5,6,7,.72) 0%,
+        rgba(5,6,7,.62) 0%,
 
-        rgba(5,6,7,.30) 65%,
+        rgba(5,6,7,.35) 50%,
 
         rgba(5,6,7,.05) 100%
       );
@@ -1216,8 +1177,7 @@ footer a{
   }
 
   .hero h1{
-    font-size:
-      clamp(56px,10vw,78px);
+    font-size:clamp(56px,10vw,78px);
   }
 
   .lead{
@@ -1229,7 +1189,7 @@ footer a{
   }
 
 
-  /* KLASSEN */
+  /* FÜHRERSCHEINKLASSEN */
 
   .classes-reference{
     aspect-ratio:auto;
@@ -1246,8 +1206,7 @@ footer a{
 
     left:50%;
 
-    transform:
-      translateX(-50%);
+    transform:translateX(-50%);
   }
 
   .class-hotspot{
@@ -1255,11 +1214,17 @@ footer a{
   }
 
 
+  /* TICKER */
+
+  .marquee{
+    height:62px;
+  }
+
+
   /* ABLAUF */
 
   .steps{
-    grid-template-columns:
-      1fr 1fr;
+    grid-template-columns:1fr 1fr;
 
     gap:36px;
   }
@@ -1299,11 +1264,6 @@ footer a{
 
     gap:20px;
   }
-
-
-  .marquee{
-    height:62px;
-  }
 }
 
 
@@ -1323,8 +1283,7 @@ footer a{
   }
 
   .hero-media{
-    background-position:
-      65% center;
+    background-position:64% center;
   }
 
   .hero h1{
@@ -1346,8 +1305,7 @@ footer a{
   .proof{
     display:grid;
 
-    grid-template-columns:
-      1fr 1fr;
+    grid-template-columns:1fr 1fr;
 
     gap:18px;
   }
@@ -1357,7 +1315,7 @@ footer a{
   }
 
 
-  /* Führerscheinklassen */
+  /* Klassen */
 
   .classes-reference{
     min-height:560px;
@@ -1368,11 +1326,14 @@ footer a{
   }
 
 
-  /* Sections */
+  /* Ablauf */
 
   .steps{
     grid-template-columns:1fr;
   }
+
+
+  /* Sections */
 
   .section-title h2,
   .split h2,
@@ -1383,16 +1344,14 @@ footer a{
   .journey,
   .success,
   .faq{
-    padding:
-      82px 22px;
+    padding:82px 22px;
   }
 
 
   /* Über uns */
 
   .visual{
-    padding:
-      46px 24px;
+    padding:46px 24px;
 
     min-height:430px;
   }
@@ -1402,16 +1361,14 @@ footer a{
   }
 
   .copy{
-    padding:
-      72px 24px;
+    padding:72px 24px;
   }
 
 
   /* Kontakt */
 
   .contact{
-    padding:
-      95px 20px;
+    padding:95px 20px;
   }
 
   .contact h2{

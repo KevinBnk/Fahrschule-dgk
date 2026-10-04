@@ -283,7 +283,7 @@
 
 @media (max-width: 900px) {
     .hero-media {
-        background-position: 60% 58% !important;
+        background-position: 70% 58% !important;
     }
 
     .hero::after {

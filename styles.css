@@ -150,6 +150,7 @@ a{
   min-height:850px;
   overflow:hidden;
   background:#050607;
+
   display:flex;
   align-items:center;
 
@@ -158,6 +159,16 @@ a{
     clamp(24px,7vw,108px)
     145px;
 }
+
+/* =========================================================
+   HERO BILD
+
+   95% = Bildgröße
+   85% = horizontale Position
+
+   Das Bild bleibt kleiner und wird etwas weiter
+   nach links verschoben.
+   ========================================================= */
 
 .hero .hero-media{
   position:absolute!important;
@@ -174,8 +185,12 @@ a{
 
   background-image:url("Hero-Header.jpeg")!important;
 
+  /* BILDGRÖSSE */
   background-size:95% auto!important;
-  background-position:90% center!important;
+
+  /* BILD ETWAS WEITER NACH LINKS */
+  background-position:85% center!important;
+
   background-repeat:no-repeat!important;
 
   background-color:#050607!important;
@@ -185,18 +200,27 @@ a{
   opacity:1!important;
 }
 
+/* Alte Bild-Abdunklung deaktivieren */
+
 .hero .hero-media::after{
   display:none!important;
 }
+
+/* Alten roten Glow deaktivieren */
 
 .hero .shade{
   display:none!important;
 }
 
+/* =========================================================
+   HERO ABDUNKLUNG
+   ========================================================= */
+
 .hero::after{
   content:"";
   position:absolute;
   inset:0;
+
   z-index:1;
   pointer-events:none;
 
@@ -217,6 +241,10 @@ a{
       transparent 30%
     );
 }
+
+/* =========================================================
+   HERO TEXT
+   ========================================================= */
 
 .hero-copy{
   position:relative;
@@ -354,340 +382,56 @@ a{
    FÜHRERSCHEINKLASSEN
    ========================================================= */
 
-.license-section{
+.classes-reference{
   position:relative;
   width:100%;
-
-  padding:
-    72px
-    clamp(28px,7vw,100px)
-    42px;
-
   overflow:hidden;
 
-  background:
-    radial-gradient(
-      circle at 76% 22%,
-      rgba(237,28,36,.16),
-      transparent 36%
-    ),
-    radial-gradient(
-      circle at 16% 15%,
-      rgba(255,255,255,.04),
-      transparent 30%
-    ),
-    #070809;
+  background:#050607;
 
-  border-top:1px solid rgba(255,255,255,.06);
+  aspect-ratio:2048/740;
+
+  border-top:1px solid rgba(255,255,255,.05);
 }
 
-.license-section::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  pointer-events:none;
-
-  background:
-    linear-gradient(
-      115deg,
-      rgba(255,255,255,.025),
-      transparent 35%
-    );
-}
-
-/* =========================================================
-   KLASSEN – KOPF
-   ========================================================= */
-
-.license-head{
-  position:relative;
-  z-index:2;
-
-  display:grid;
-
-  grid-template-columns:
-    minmax(360px,1fr)
-    minmax(320px,.72fr);
-
-  align-items:end;
-
-  gap:80px;
-
-  margin-bottom:42px;
-}
-
-.license-title span{
-  display:block;
-
-  margin-bottom:4px;
-
-  color:var(--red);
-
-  font-size:clamp(25px,3vw,43px);
-
-  font-weight:900;
-
-  letter-spacing:-.055em;
-
-  line-height:1;
-}
-
-.license-title h2{
-  margin:0;
-
-  color:#fff;
-
-  font-size:clamp(62px,7vw,108px);
-
-  font-weight:900;
-
-  letter-spacing:-.075em;
-
-  line-height:.82;
-}
-
-.license-intro{
-  max-width:520px;
-
-  margin:0 0 8px;
-
-  color:#b8babd;
-
-  font-size:clamp(16px,1.35vw,20px);
-
-  line-height:1.65;
-}
-
-/* =========================================================
-   KLASSEN – GRID
-   ========================================================= */
-
-.license-grid{
-  position:relative;
-  z-index:2;
-
-  display:grid;
-
-  grid-template-columns:repeat(3,minmax(0,1fr));
-
-  gap:18px;
-
-  width:100%;
-}
-
-.license-card{
-  position:relative;
-
-  display:block;
-
-  min-width:0;
-
-  overflow:hidden;
-
-  color:#fff;
-
-  text-decoration:none;
-
-  border:1px solid rgba(255,255,255,.20);
-
-  background:
-    linear-gradient(
-      145deg,
-      #151719,
-      #090a0b
-    );
-
-  transition:
-    transform .3s ease,
-    border-color .3s ease,
-    box-shadow .3s ease;
-}
-
-.license-card:hover{
-  transform:translateY(-6px);
-
-  border-color:rgba(237,28,36,.75);
-
-  box-shadow:
-    0 25px 70px rgba(0,0,0,.38),
-    0 0 40px rgba(237,28,36,.08);
-}
-
-/* =========================================================
-   FAHRZEUGBILDER
-   ========================================================= */
-
-.license-image{
-  position:relative;
-
-  width:100%;
-
-  aspect-ratio:16 / 9;
-
-  overflow:hidden;
-
-  background:#090a0b;
-}
-
-.license-image img{
+.classes-reference>img{
   display:block;
 
   width:100%;
-  height:100%;
-
-  object-fit:cover;
-  object-position:center;
-
-  transition:transform .55s cubic-bezier(.2,.8,.2,1);
-}
-
-.license-card:hover .license-image img{
-  transform:scale(1.035);
-}
-
-.license-image::after{
-  content:"";
+  height:auto;
 
   position:absolute;
-  inset:0;
-
-  pointer-events:none;
-
-  background:
-    linear-gradient(
-      0deg,
-      rgba(6,7,8,.96) 0%,
-      rgba(6,7,8,.48) 18%,
-      rgba(6,7,8,.10) 45%,
-      transparent 65%
-    );
+  inset:0 auto auto 0;
 }
 
-/* AUTO etwas besser positionieren */
-
-.license-card:nth-child(1) .license-image img{
-  object-position:center center;
-}
-
-/* MOTORRAD */
-
-.license-card:nth-child(2) .license-image img{
-  object-position:center center;
-}
-
-/* ANHÄNGER */
-
-.license-card:nth-child(3) .license-image img{
-  object-position:center center;
-}
-
-/* =========================================================
-   B / A / BE
-   ========================================================= */
-
-.license-letter{
+.class-hotspot{
   position:absolute;
+  z-index:4;
 
-  z-index:3;
+  bottom:4%;
+  height:49%;
 
-  top:18px;
-  right:22px;
-
-  color:rgba(255,255,255,.16);
-
-  font-size:clamp(58px,5.3vw,92px);
-
-  font-weight:900;
-
-  letter-spacing:-.08em;
-
-  line-height:1;
+  border-radius:3px;
 }
 
-/* =========================================================
-   TEXT DER KARTEN
-   ========================================================= */
-
-.license-card-bottom{
-  position:relative;
-
-  z-index:5;
-
-  display:flex;
-
-  align-items:flex-end;
-
-  justify-content:space-between;
-
-  gap:20px;
-
-  padding:
-    0
-    25px
-    23px;
-
-  margin-top:-70px;
+.hotspot-auto{
+  left:3.5%;
+  width:31%;
 }
 
-.license-card-bottom h3{
-  margin:0 0 3px;
-
-  color:#fff;
-
-  font-size:clamp(27px,2.3vw,38px);
-
-  font-weight:900;
-
-  letter-spacing:-.04em;
-
-  line-height:1;
+.hotspot-bike{
+  left:35.7%;
+  width:28.7%;
 }
 
-.license-card-bottom p{
-  margin:0;
-
-  color:#c1c3c5;
-
-  font-size:clamp(14px,1.25vw,19px);
-
-  line-height:1.4;
+.hotspot-trailer{
+  left:65.8%;
+  width:30.8%;
 }
 
-/* =========================================================
-   ROTER PFEIL
-   ========================================================= */
-
-.license-arrow{
-  flex:0 0 auto;
-
-  width:54px;
-  height:54px;
-
-  display:grid;
-
-  place-items:center;
-
-  border-radius:50%;
-
-  background:var(--red);
-
-  color:#fff;
-
-  font-size:28px;
-
-  line-height:1;
-
-  transition:
-    transform .25s ease,
-    background .25s ease;
-
-  box-shadow:
-    0 10px 30px rgba(237,28,36,.20);
-}
-
-.license-card:hover .license-arrow{
-  transform:translateX(4px);
-  background:#ff3038;
+.class-hotspot:focus-visible{
+  outline:2px solid #ed1c24;
+  outline-offset:-4px;
 }
 
 /* =========================================================
@@ -1160,15 +904,6 @@ footer a{
   .quick{
     right:8px;
   }
-
-  .license-section{
-    padding-left:45px;
-    padding-right:45px;
-  }
-
-  .license-head{
-    gap:50px;
-  }
 }
 
 /* =========================================================
@@ -1257,44 +992,21 @@ footer a{
     display:none;
   }
 
-  /* Klassen */
-
-  .license-section{
-    padding:
-      60px
-      24px
-      34px;
+  .classes-reference{
+    aspect-ratio:auto;
+    min-height:760px;
+    overflow:hidden;
   }
 
-  .license-head{
-    grid-template-columns:1fr;
-    gap:28px;
-    margin-bottom:38px;
+  .classes-reference>img{
+    width:205%;
+    max-width:none;
+    left:50%;
+    transform:translateX(-50%);
   }
 
-  .license-title h2{
-    font-size:clamp(65px,13vw,100px);
-  }
-
-  .license-intro{
-    max-width:650px;
-  }
-
-  .license-grid{
-    grid-template-columns:1fr;
-    gap:18px;
-  }
-
-  .license-image{
-    aspect-ratio:16 / 8;
-  }
-
-  .license-letter{
-    font-size:90px;
-  }
-
-  .license-card-bottom h3{
-    font-size:34px;
+  .class-hotspot{
+    display:none;
   }
 
   .marquee{
@@ -1388,60 +1100,12 @@ footer a{
     font-size:18px;
   }
 
-  /* Klassen */
-
-  .license-section{
-    padding:
-      48px
-      18px
-      28px;
+  .classes-reference{
+    min-height:560px;
   }
 
-  .license-title span{
-    font-size:25px;
-  }
-
-  .license-title h2{
-    font-size:61px;
-    line-height:.84;
-  }
-
-  .license-intro{
-    font-size:16px;
-    line-height:1.55;
-  }
-
-  .license-image{
-    aspect-ratio:4 / 2.5;
-  }
-
-  .license-letter{
-    top:14px;
-    right:17px;
-    font-size:66px;
-  }
-
-  .license-card-bottom{
-    padding:
-      0
-      18px
-      18px;
-
-    margin-top:-58px;
-  }
-
-  .license-card-bottom h3{
-    font-size:29px;
-  }
-
-  .license-card-bottom p{
-    font-size:14px;
-  }
-
-  .license-arrow{
-    width:48px;
-    height:48px;
-    font-size:24px;
+  .classes-reference>img{
+    width:245%;
   }
 
   .steps{

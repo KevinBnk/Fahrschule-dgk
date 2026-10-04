@@ -28,10 +28,9 @@ a{
   color:inherit;
 }
 
-
 /* =========================================================
-   HEADER / NAVIGATION
-   ========================================================= */
+   HEADER
+========================================================= */
 
 .topbar{
   height:94px;
@@ -102,10 +101,9 @@ a{
   display:none;
 }
 
-
 /* =========================================================
    BUTTONS
-   ========================================================= */
+========================================================= */
 
 .btn{
   display:inline-flex;
@@ -125,11 +123,7 @@ a{
 
 .btn.red,
 .red{
-  background:linear-gradient(
-    135deg,
-    var(--red2),
-    #d80d16
-  );
+  background:linear-gradient(135deg,var(--red2),#d80d16);
   color:#fff!important;
   box-shadow:0 14px 44px rgba(237,28,36,.25);
 }
@@ -147,11 +141,9 @@ a{
   color:#090a0c!important;
 }
 
-
 /* =========================================================
    HERO
-   FOTO ÜBER KOMPLETTE BREITE
-   ========================================================= */
+========================================================= */
 
 .hero{
   position:relative;
@@ -169,32 +161,36 @@ a{
   overflow:hidden;
 
   /*
-    Das Bild liegt DIREKT auf dem kompletten Hero.
-    Dadurch gibt es keine rechte "Bildbox" mehr.
+     WICHTIG:
+     Das Bild liegt direkt auf dem kompletten HERO.
+     Dadurch geht es von links bis rechts.
   */
+
   background-image:url("Hero-Header.jpeg");
   background-size:cover;
-  background-position:center center;
+
+  /*
+     BILDAUSSCHNITT WEITER NACH RECHTS
+     50% = Mitte
+     68% = weiter rechts
+     72% = noch weiter rechts
+  */
+  background-position:68% center;
+
   background-repeat:no-repeat;
   background-color:#050607;
 }
 
-
 /*
-  hero-media bleibt im HTML,
-  wird aber nicht mehr verwendet.
+   Alte hero-media wird nicht mehr benötigt.
+   Dadurch kann keine alte Regel mehr dazwischenfunken.
 */
 
 .hero-media{
   display:none!important;
 }
 
-.hero .shade{
-  display:none!important;
-}
-
-
-/* leichte Struktur */
+/* Rasterstruktur sehr dezent */
 
 .hero:before{
   content:"";
@@ -216,23 +212,18 @@ a{
 
   z-index:1;
   pointer-events:none;
-
-  opacity:.35;
 }
 
-
 /*
-  Dunkler Verlauf links.
-  WICHTIG:
-  Das Foto läuft trotzdem darunter bis ganz links.
+   Abdunklung links für perfekte Lesbarkeit.
+   Das Foto bleibt rechts deutlich sichtbar.
 */
 
 .hero:after{
   content:"";
   position:absolute;
   inset:0;
-
-  z-index:2;
+  z-index:1;
   pointer-events:none;
 
   background:
@@ -240,30 +231,27 @@ a{
     linear-gradient(
       90deg,
 
-      rgba(5,6,7,.96) 0%,
-      rgba(5,6,7,.91) 8%,
-      rgba(5,6,7,.82) 18%,
-      rgba(5,6,7,.68) 30%,
-      rgba(5,6,7,.48) 42%,
-      rgba(5,6,7,.27) 54%,
-      rgba(5,6,7,.11) 67%,
-      rgba(5,6,7,.03) 82%,
-      rgba(5,6,7,0) 100%
+      rgba(5,6,7,.91) 0%,
+      rgba(5,6,7,.84) 13%,
+      rgba(5,6,7,.66) 29%,
+      rgba(5,6,7,.34) 45%,
+      rgba(5,6,7,.10) 62%,
+      rgba(5,6,7,.02) 100%
     ),
 
     linear-gradient(
       0deg,
-
-      rgba(5,6,7,.60) 0%,
-      rgba(5,6,7,.20) 22%,
-      rgba(5,6,7,0) 43%
+      rgba(5,6,7,.45) 0%,
+      rgba(5,6,7,.10) 28%,
+      transparent 50%
     );
 }
 
+.shade{
+  display:none!important;
+}
 
-/* =========================================================
-   HERO TEXT
-   ========================================================= */
+/* Hero Text */
 
 .hero-copy{
   position:relative;
@@ -306,10 +294,7 @@ a{
   margin:34px 0;
 }
 
-
-/* =========================================================
-   HERO INFOS
-   ========================================================= */
+/* Hero Fakten */
 
 .proof{
   display:flex;
@@ -331,10 +316,7 @@ a{
   color:#fff;
 }
 
-
-/* =========================================================
-   SCROLL HINWEIS
-   ========================================================= */
+/* Scroll Hinweis */
 
 .scroll{
   position:absolute;
@@ -356,10 +338,9 @@ a{
   margin-top:6px;
 }
 
-
 /* =========================================================
-   SCHNELLMENÜ RECHTS
-   ========================================================= */
+   SCHNELLAUSWAHL RECHTS
+========================================================= */
 
 .quick{
   position:fixed;
@@ -407,15 +388,15 @@ a{
   font-size:9px;
 }
 
-
 /* =========================================================
-   FÜHRERSCHEINKLASSEN REFERENZ
-   ========================================================= */
+   FÜHRERSCHEINKLASSEN – REFERENZGRAFIK
+========================================================= */
 
 .classes-reference{
   position:relative;
   width:100%;
   overflow:hidden;
+
   background:#050607;
 
   aspect-ratio:2048/740;
@@ -425,6 +406,7 @@ a{
 
 .classes-reference>img{
   display:block;
+
   width:100%;
   height:auto;
 
@@ -458,34 +440,35 @@ a{
 }
 
 .class-hotspot:focus-visible{
-  outline:2px solid var(--red);
+  outline:2px solid #ed1c24;
   outline-offset:-4px;
 }
 
-
 /* =========================================================
-   TICKER
-   ========================================================= */
+   ROTER LAUFBANNER
+========================================================= */
 
 .marquee{
   width:100%;
+
+  margin:0;
+  padding:0;
+
   height:72px;
 
   display:flex;
   align-items:center;
 
-  margin:0;
-  padding:0;
-
   overflow:hidden;
 
-  background:var(--red);
+  background:#ed1c24;
 
   border:0;
 }
 
 .marquee .marquee-track{
   display:flex;
+
   flex:none;
 
   width:max-content;
@@ -503,15 +486,16 @@ a{
   flex:none;
 
   font-weight:900;
+
   font-size:clamp(20px,2.2vw,34px);
 
   line-height:1;
-  color:#fff;
 
-  letter-spacing:-.03em;
+  color:#fff;
 }
 
 @keyframes marqueeLoop{
+
   from{
     transform:translateX(0);
   }
@@ -521,10 +505,9 @@ a{
   }
 }
 
-
 /* =========================================================
    ABLAUF
-   ========================================================= */
+========================================================= */
 
 .journey,
 .success,
@@ -540,18 +523,23 @@ a{
 .split h2,
 .faq h2{
   font-size:clamp(40px,4.2vw,62px);
+
   letter-spacing:-.05em;
+
   margin:15px 0 52px;
 }
 
 .steps{
   display:grid;
+
   grid-template-columns:repeat(5,1fr);
+
   position:relative;
 }
 
 .steps:before{
   content:"";
+
   position:absolute;
 
   top:44px;
@@ -571,12 +559,15 @@ a{
 
 .steps article{
   position:relative;
+
   padding:0 22px;
 }
 
 .steps i{
   color:var(--red);
+
   font-style:normal;
+
   font-weight:800;
 }
 
@@ -585,6 +576,7 @@ a{
   height:74px;
 
   border:1px solid #394047;
+
   border-radius:50%;
 
   background:#101418;
@@ -607,17 +599,19 @@ a{
 
 .steps p{
   color:#9da2a7;
+
   line-height:1.6;
+
   font-size:14px;
 }
 
-
 /* =========================================================
    ÜBER UNS
-   ========================================================= */
+========================================================= */
 
 .split{
   display:grid;
+
   grid-template-columns:1.05fr .95fr;
 
   min-height:680px;
@@ -628,19 +622,17 @@ a{
 }
 
 .visual{
-  background:linear-gradient(
-    135deg,
-    #181c20,
-    #080a0c
-  );
+  background:linear-gradient(135deg,#181c20,#080a0c);
 
   display:flex;
   flex-direction:column;
+
   justify-content:flex-end;
 
   padding:72px;
 
   position:relative;
+
   overflow:hidden;
 }
 
@@ -653,6 +645,7 @@ a{
   height:520px;
 
   border:95px solid var(--red);
+
   border-radius:50%;
 
   right:-190px;
@@ -683,12 +676,15 @@ a{
 
 .visual span{
   color:#777;
+
   letter-spacing:.3em;
+
   z-index:2;
 }
 
 .visual strong{
   font-size:58px;
+
   line-height:.94;
 
   margin-top:18px;
@@ -700,17 +696,21 @@ a{
 
 .copy{
   padding:100px 11%;
+
   align-self:center;
 }
 
 .copy p{
   color:#aeb2b5;
+
   line-height:1.78;
 }
 
 .text-link{
   color:#fff;
+
   font-weight:800;
+
   text-decoration:none;
 
   display:inline-block;
@@ -718,10 +718,9 @@ a{
   margin-top:20px;
 }
 
-
 /* =========================================================
    ERFOLGE
-   ========================================================= */
+========================================================= */
 
 .success{
   background:#07090b;
@@ -729,7 +728,9 @@ a{
 
 .success-grid{
   display:grid;
+
   grid-template-columns:repeat(3,1fr);
+
   gap:18px;
 }
 
@@ -747,7 +748,9 @@ a{
   );
 
   display:flex;
+
   flex-direction:column;
+
   justify-content:flex-end;
 
   transition:.3s;
@@ -755,6 +758,7 @@ a{
 
 .success-grid article:hover{
   border-color:#713036;
+
   transform:translateY(-5px);
 }
 
@@ -772,22 +776,25 @@ a{
 
 .success-grid p{
   color:#999;
+
   line-height:1.55;
 }
 
-
 /* =========================================================
    FAQ
-   ========================================================= */
+========================================================= */
 
 .faq{
   display:grid;
+
   grid-template-columns:.7fr 1.3fr;
+
   gap:90px;
 }
 
 .accord details{
   border-top:1px solid #333;
+
   padding:25px 0;
 }
 
@@ -797,24 +804,27 @@ a{
 
 .accord summary{
   cursor:pointer;
+
   list-style:none;
 
   font-size:18px;
+
   font-weight:700;
 
   display:flex;
+
   justify-content:space-between;
 }
 
 .accord p{
   color:#aaa;
+
   line-height:1.65;
 }
 
-
 /* =========================================================
    KONTAKT
-   ========================================================= */
+========================================================= */
 
 .contact{
   text-align:center;
@@ -833,7 +843,9 @@ a{
 
 .contact h2{
   font-size:clamp(48px,5.5vw,76px);
+
   line-height:.96;
+
   margin:17px;
 }
 
@@ -845,10 +857,9 @@ a{
   justify-content:center;
 }
 
-
 /* =========================================================
    FOOTER
-   ========================================================= */
+========================================================= */
 
 footer{
   padding:52px clamp(24px,7vw,108px);
@@ -856,11 +867,13 @@ footer{
   border-top:1px solid #222;
 
   display:flex;
+
   align-items:center;
 
   gap:30px;
 
   color:#777;
+
   font-size:12px;
 }
 
@@ -870,38 +883,39 @@ footer img{
 
 footer div{
   margin-left:auto;
+
   display:flex;
+
   gap:20px;
 }
 
 footer a{
   color:#aaa;
+
   text-decoration:none;
 }
 
-
 /* =========================================================
-   ANIMATION
-   ========================================================= */
+   ANIMATIONEN
+========================================================= */
 
 .reveal{
   opacity:0;
+
   transform:translateY(22px);
 
-  transition:
-    .75s
-    cubic-bezier(.2,.8,.2,1);
+  transition:.75s cubic-bezier(.2,.8,.2,1);
 }
 
 .reveal.show{
   opacity:1;
+
   transform:none;
 }
 
-
 /* =========================================================
    TABLET
-   ========================================================= */
+========================================================= */
 
 @media(max-width:1100px){
 
@@ -930,17 +944,16 @@ footer a{
   }
 }
 
-
 /* =========================================================
-   IPAD / KLEINERE TABLETS
-   ========================================================= */
+   IPAD / MOBILE
+========================================================= */
 
 @media(max-width:900px){
 
   .topbar{
     height:78px;
+
     padding:0 22px;
-    position:absolute;
   }
 
   .logo img{
@@ -958,15 +971,13 @@ footer a{
     margin-left:auto;
 
     background:none;
+
     border:0;
 
     color:#fff;
 
     font-size:25px;
   }
-
-
-  /* HERO */
 
   .hero{
     min-height:780px;
@@ -978,13 +989,11 @@ footer a{
 
     align-items:flex-end;
 
-    background-size:cover;
-
     /*
-      Auf Tablet wird das Auto etwas stärker
-      in den sichtbaren Bereich geschoben.
+       Tablet-Bildausschnitt
     */
-    background-position:62% center;
+
+    background-position:68% center;
   }
 
   .hero:after{
@@ -992,19 +1001,17 @@ footer a{
 
       linear-gradient(
         0deg,
-
         rgba(5,6,7,.96) 0%,
-        rgba(5,6,7,.78) 34%,
-        rgba(5,6,7,.36) 65%,
-        rgba(5,6,7,.06) 100%
+        rgba(5,6,7,.74) 40%,
+        rgba(5,6,7,.20) 78%,
+        rgba(5,6,7,.08) 100%
       ),
 
       linear-gradient(
         90deg,
-
         rgba(5,6,7,.72) 0%,
         rgba(5,6,7,.38) 55%,
-        rgba(5,6,7,.08) 100%
+        rgba(5,6,7,.12) 100%
       );
   }
 
@@ -1024,17 +1031,17 @@ footer a{
     display:none;
   }
 
-
-  /* KLASSEN */
-
   .classes-reference{
     aspect-ratio:auto;
+
     min-height:760px;
+
     overflow:hidden;
   }
 
   .classes-reference>img{
     width:205%;
+
     max-width:none;
 
     left:50%;
@@ -1046,15 +1053,9 @@ footer a{
     display:none;
   }
 
-
-  /* TICKER */
-
   .marquee{
     height:62px;
   }
-
-
-  /* ABLAUF */
 
   .journey{
     padding-top:64px;
@@ -1062,15 +1063,13 @@ footer a{
 
   .steps{
     grid-template-columns:1fr 1fr;
+
     gap:36px;
   }
 
   .steps:before{
     display:none;
   }
-
-
-  /* ÜBER UNS */
 
   .split{
     grid-template-columns:1fr;
@@ -1079,9 +1078,6 @@ footer a{
   .visual{
     min-height:520px;
   }
-
-
-  /* ERFOLGE */
 
   .success-grid{
     grid-template-columns:1fr;
@@ -1092,19 +1088,16 @@ footer a{
     transform:none;
   }
 
-
-  /* FAQ */
-
   .faq{
     grid-template-columns:1fr;
+
     gap:20px;
   }
 }
 
-
 /* =========================================================
    SMARTPHONE
-   ========================================================= */
+========================================================= */
 
 @media(max-width:560px){
 
@@ -1116,7 +1109,7 @@ footer a{
       20px
       95px;
 
-    background-position:64% center;
+    background-position:68% center;
   }
 
   .hero h1{
@@ -1137,20 +1130,15 @@ footer a{
 
   .proof{
     display:grid;
+
     grid-template-columns:1fr 1fr;
+
     gap:18px;
   }
 
   .proof b{
     font-size:18px;
   }
-
-  .scroll{
-    display:none;
-  }
-
-
-  /* KLASSEN */
 
   .classes-reference{
     min-height:560px;
@@ -1160,8 +1148,9 @@ footer a{
     width:245%;
   }
 
-
-  /* CONTENT */
+  .steps{
+    grid-template-columns:1fr;
+  }
 
   .section-title h2,
   .split h2,
@@ -1175,16 +1164,9 @@ footer a{
     padding:82px 22px;
   }
 
-  .journey{
-    padding-top:64px;
-  }
-
-  .steps{
-    grid-template-columns:1fr;
-  }
-
   .visual{
     padding:46px 24px;
+
     min-height:430px;
   }
 
@@ -1206,10 +1188,15 @@ footer a{
 
   footer{
     flex-direction:column;
+
     align-items:flex-start;
   }
 
   footer div{
     margin-left:0;
+  }
+
+  .scroll{
+    display:none;
   }
 }

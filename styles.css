@@ -30,7 +30,7 @@ a{
 
 
 /* =========================================================
-   HEADER
+   HEADER / NAVIGATION
    ========================================================= */
 
 .topbar{
@@ -38,22 +38,15 @@ a{
   display:flex;
   align-items:center;
   padding:0 clamp(24px,6vw,92px);
-
   position:absolute;
-  top:0;
-  left:0;
-
   z-index:20;
   width:100%;
-
   border-bottom:1px solid rgba(255,255,255,.08);
-
   background:linear-gradient(
     180deg,
     rgba(4,5,6,.94),
     rgba(4,5,6,.78)
   );
-
   backdrop-filter:blur(18px);
 }
 
@@ -79,7 +72,7 @@ a{
   color:#eee;
 }
 
-.topbar nav a::after{
+.topbar nav a:after{
   content:"";
   position:absolute;
   left:0;
@@ -90,7 +83,7 @@ a{
   transition:.25s;
 }
 
-.topbar nav a:hover::after{
+.topbar nav a:hover:after{
   right:0;
 }
 
@@ -118,15 +111,11 @@ a{
   display:inline-flex;
   align-items:center;
   justify-content:center;
-
   padding:17px 25px;
-
   border-radius:4px;
-  text-decoration:none !important;
-  font-weight:800 !important;
-
+  text-decoration:none!important;
+  font-weight:800!important;
   transition:.25s;
-
   border:1px solid transparent;
 }
 
@@ -141,36 +130,31 @@ a{
     var(--red2),
     #d80d16
   );
-
-  color:#fff !important;
-
+  color:#fff!important;
   box-shadow:0 14px 44px rgba(237,28,36,.25);
 }
 
 .btn.outline,
 .outline{
   border-color:rgba(255,255,255,.27);
-
   background:rgba(8,10,12,.34);
-
-  color:#fff !important;
-
+  color:#fff!important;
   backdrop-filter:blur(8px);
 }
 
 .white{
   background:#fff;
-  color:#090a0c !important;
+  color:#090a0c!important;
 }
 
 
 /* =========================================================
    HERO
+   FOTO ÜBER KOMPLETTE BREITE
    ========================================================= */
 
 .hero{
   position:relative;
-
   width:100%;
   min-height:850px;
 
@@ -184,121 +168,95 @@ a{
 
   overflow:hidden;
 
-  background:#050607;
+  /*
+    Das Bild liegt DIREKT auf dem kompletten Hero.
+    Dadurch gibt es keine rechte "Bildbox" mehr.
+  */
+  background-image:url("Hero-Header.jpeg");
+  background-size:cover;
+  background-position:center center;
+  background-repeat:no-repeat;
+  background-color:#050607;
 }
 
 
-/* =========================================================
-   HERO FOTO
-   VOLLE BREITE VON LINKS BIS RECHTS
-   ========================================================= */
+/*
+  hero-media bleibt im HTML,
+  wird aber nicht mehr verwendet.
+*/
 
 .hero-media{
-  position:absolute;
-
-  top:94px;
-  left:0;
-  right:0;
-  bottom:0;
-
-  width:100%;
-  height:auto;
-
-  z-index:0;
-
-  background-image:url("Hero-Header.jpeg");
-
-  /*
-     FOTO FÜLLT DIE GESAMTE HERO-FLÄCHE
-  */
-  background-size:cover;
-
-  /*
-     Motiv mittig.
-     Das Foto selbst geht trotzdem
-     von links bis rechts.
-  */
-  background-position:center center;
-
-  background-repeat:no-repeat;
-
-  opacity:1;
-
-  filter:none;
-
-  transform:none;
+  display:none!important;
 }
-
-
-/* Alte Ebene deaktivieren */
-
-.hero-media::after{
-  display:none;
-}
-
-
-/* Alten Glow deaktivieren */
 
 .hero .shade{
-  display:none;
+  display:none!important;
 }
 
 
-/* =========================================================
-   HERO OVERLAY
-   FOTO BLEIBT AUCH LINKS SICHTBAR
-   ========================================================= */
+/* leichte Struktur */
 
-.hero::after{
+.hero:before{
   content:"";
-
   position:absolute;
-
   inset:0;
 
-  z-index:1;
+  background:
+    linear-gradient(
+      rgba(255,255,255,.018) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(255,255,255,.018) 1px,
+      transparent 1px
+    );
 
+  background-size:72px 72px;
+
+  z-index:1;
+  pointer-events:none;
+
+  opacity:.35;
+}
+
+
+/*
+  Dunkler Verlauf links.
+  WICHTIG:
+  Das Foto läuft trotzdem darunter bis ganz links.
+*/
+
+.hero:after{
+  content:"";
+  position:absolute;
+  inset:0;
+
+  z-index:2;
   pointer-events:none;
 
   background:
 
-    /*
-       Links dunkler für die Schrift,
-       aber NICHT mehr komplett schwarz.
-    */
-
     linear-gradient(
       90deg,
 
-      rgba(5,6,7,.78) 0%,
-
-      rgba(5,6,7,.72) 12%,
-
-      rgba(5,6,7,.62) 25%,
-
-      rgba(5,6,7,.46) 38%,
-
-      rgba(5,6,7,.25) 52%,
-
-      rgba(5,6,7,.10) 67%,
-
-      rgba(5,6,7,.02) 82%,
-
-      transparent 100%
+      rgba(5,6,7,.96) 0%,
+      rgba(5,6,7,.91) 8%,
+      rgba(5,6,7,.82) 18%,
+      rgba(5,6,7,.68) 30%,
+      rgba(5,6,7,.48) 42%,
+      rgba(5,6,7,.27) 54%,
+      rgba(5,6,7,.11) 67%,
+      rgba(5,6,7,.03) 82%,
+      rgba(5,6,7,0) 100%
     ),
-
-    /*
-       Unterer Verlauf
-    */
 
     linear-gradient(
       0deg,
 
-      rgba(5,6,7,.42) 0%,
-
-      rgba(5,6,7,.10) 24%,
-
-      transparent 42%
+      rgba(5,6,7,.60) 0%,
+      rgba(5,6,7,.20) 22%,
+      rgba(5,6,7,0) 43%
     );
 }
 
@@ -309,31 +267,22 @@ a{
 
 .hero-copy{
   position:relative;
-
   z-index:3;
-
   max-width:690px;
 }
 
 .eyebrow{
   color:#ff3b42;
-
   font-weight:800;
-
   letter-spacing:.23em;
-
   font-size:12px;
-
   text-transform:uppercase;
 }
 
 .hero h1{
   font-size:clamp(66px,6.3vw,98px);
-
   line-height:.89;
-
   margin:22px 0 30px;
-
   letter-spacing:-.065em;
 }
 
@@ -341,30 +290,19 @@ a{
 .section-title em,
 .contact em{
   font-style:normal;
-
   color:var(--red);
 }
 
 .lead{
   font-size:20px;
-
   line-height:1.6;
-
   color:#d3d5d7;
-
   max-width:620px;
 }
 
-
-/* =========================================================
-   HERO BUTTONS
-   ========================================================= */
-
 .actions{
   display:flex;
-
   gap:14px;
-
   margin:34px 0;
 }
 
@@ -375,93 +313,66 @@ a{
 
 .proof{
   display:flex;
-
   flex-wrap:wrap;
-
   gap:18px 30px;
-
   margin-top:38px;
-
   font-size:12px;
-
   color:#d8d8d8;
 }
 
 .proof span{
   display:flex;
-
   gap:10px;
-
   align-items:center;
 }
 
 .proof b{
   font-size:21px;
-
   color:#fff;
 }
 
 
 /* =========================================================
-   SCROLL
+   SCROLL HINWEIS
    ========================================================= */
 
 .scroll{
   position:absolute;
-
   z-index:4;
-
   bottom:28px;
-
   left:50%;
-
   transform:translateX(-50%);
-
   color:#fff;
-
   text-decoration:none;
-
   text-align:center;
-
   opacity:.72;
 }
 
 .scroll small{
   display:block;
-
   font-size:8px;
-
   letter-spacing:.2em;
-
   color:#aaa;
-
   margin-top:6px;
 }
 
 
 /* =========================================================
-   SCHNELLAUSWAHL RECHTS
+   SCHNELLMENÜ RECHTS
    ========================================================= */
 
 .quick{
   position:fixed;
-
   z-index:30;
-
   right:14px;
-
   top:50%;
-
   transform:translateY(-50%);
 
   background:rgba(12,15,18,.84);
-
   border:1px solid var(--line);
-
   backdrop-filter:blur(14px);
 
   border-radius:8px;
-
   overflow:hidden;
 
   box-shadow:0 18px 60px rgba(0,0,0,.35);
@@ -472,15 +383,11 @@ a{
   height:68px;
 
   color:#fff;
-
   text-decoration:none;
 
   display:flex;
-
   flex-direction:column;
-
   align-items:center;
-
   justify-content:center;
 
   border-bottom:1px solid rgba(255,255,255,.08);
@@ -502,43 +409,34 @@ a{
 
 
 /* =========================================================
-   FÜHRERSCHEINKLASSEN
+   FÜHRERSCHEINKLASSEN REFERENZ
    ========================================================= */
 
 .classes-reference{
   position:relative;
-
   width:100%;
-
   overflow:hidden;
-
   background:#050607;
 
-  aspect-ratio:2048 / 740;
+  aspect-ratio:2048/740;
 
   border-top:1px solid rgba(255,255,255,.05);
 }
 
-.classes-reference > img{
+.classes-reference>img{
   display:block;
+  width:100%;
+  height:auto;
 
   position:absolute;
-
-  top:0;
-  left:0;
-
-  width:100%;
-
-  height:auto;
+  inset:0 auto auto 0;
 }
 
 .class-hotspot{
   position:absolute;
-
   z-index:4;
 
   bottom:4%;
-
   height:49%;
 
   border-radius:3px;
@@ -560,41 +458,37 @@ a{
 }
 
 .class-hotspot:focus-visible{
-  outline:2px solid #ed1c24;
-
+  outline:2px solid var(--red);
   outline-offset:-4px;
 }
 
 
 /* =========================================================
-   ROTER TICKER
+   TICKER
    ========================================================= */
 
 .marquee{
-  position:relative;
-
   width:100%;
-
   height:72px;
 
   display:flex;
-
   align-items:center;
+
+  margin:0;
+  padding:0;
 
   overflow:hidden;
 
-  background:#ed1c24;
+  background:var(--red);
 
   border:0;
 }
 
-.marquee-track{
+.marquee .marquee-track{
   display:flex;
-
   flex:none;
 
   width:max-content;
-
   min-width:max-content;
 
   white-space:nowrap;
@@ -604,24 +498,20 @@ a{
   animation:marqueeLoop 24s linear infinite;
 }
 
-.marquee-track span{
+.marquee .marquee-track span{
   display:block;
-
   flex:none;
 
-  padding:0;
-
   font-weight:900;
-
   font-size:clamp(20px,2.2vw,34px);
 
   line-height:1;
-
   color:#fff;
+
+  letter-spacing:-.03em;
 }
 
 @keyframes marqueeLoop{
-
   from{
     transform:translateX(0);
   }
@@ -633,7 +523,7 @@ a{
 
 
 /* =========================================================
-   ALLGEMEINE SEKTIONEN
+   ABLAUF
    ========================================================= */
 
 .journey,
@@ -643,39 +533,28 @@ a{
 }
 
 .journey{
-  padding-top:90px;
+  padding-top:72px;
 }
 
 .section-title h2,
 .split h2,
 .faq h2{
   font-size:clamp(40px,4.2vw,62px);
-
   letter-spacing:-.05em;
-
   margin:15px 0 52px;
 }
 
-
-/* =========================================================
-   ABLAUF
-   ========================================================= */
-
 .steps{
   display:grid;
-
   grid-template-columns:repeat(5,1fr);
-
   position:relative;
 }
 
-.steps::before{
+.steps:before{
   content:"";
-
   position:absolute;
 
   top:44px;
-
   left:8%;
   right:8%;
 
@@ -692,15 +571,12 @@ a{
 
 .steps article{
   position:relative;
-
   padding:0 22px;
 }
 
 .steps i{
   color:var(--red);
-
   font-style:normal;
-
   font-weight:800;
 }
 
@@ -709,13 +585,11 @@ a{
   height:74px;
 
   border:1px solid #394047;
-
   border-radius:50%;
 
   background:#101418;
 
   display:grid;
-
   place-items:center;
 
   font-size:25px;
@@ -733,9 +607,7 @@ a{
 
 .steps p{
   color:#9da2a7;
-
   line-height:1.6;
-
   font-size:14px;
 }
 
@@ -746,7 +618,6 @@ a{
 
 .split{
   display:grid;
-
   grid-template-columns:1.05fr .95fr;
 
   min-height:680px;
@@ -764,19 +635,16 @@ a{
   );
 
   display:flex;
-
   flex-direction:column;
-
   justify-content:flex-end;
 
   padding:72px;
 
   position:relative;
-
   overflow:hidden;
 }
 
-.visual::after{
+.visual:after{
   content:"";
 
   position:absolute;
@@ -785,21 +653,18 @@ a{
   height:520px;
 
   border:95px solid var(--red);
-
   border-radius:50%;
 
   right:-190px;
-
   top:-155px;
 
   opacity:.85;
 }
 
-.visual::before{
+.visual:before{
   content:"";
 
   position:absolute;
-
   inset:0;
 
   background:
@@ -818,15 +683,12 @@ a{
 
 .visual span{
   color:#777;
-
   letter-spacing:.3em;
-
   z-index:2;
 }
 
 .visual strong{
   font-size:58px;
-
   line-height:.94;
 
   margin-top:18px;
@@ -838,21 +700,17 @@ a{
 
 .copy{
   padding:100px 11%;
-
   align-self:center;
 }
 
 .copy p{
   color:#aeb2b5;
-
   line-height:1.78;
 }
 
 .text-link{
   color:#fff;
-
   font-weight:800;
-
   text-decoration:none;
 
   display:inline-block;
@@ -871,9 +729,7 @@ a{
 
 .success-grid{
   display:grid;
-
   grid-template-columns:repeat(3,1fr);
-
   gap:18px;
 }
 
@@ -891,9 +747,7 @@ a{
   );
 
   display:flex;
-
   flex-direction:column;
-
   justify-content:flex-end;
 
   transition:.3s;
@@ -901,7 +755,6 @@ a{
 
 .success-grid article:hover{
   border-color:#713036;
-
   transform:translateY(-5px);
 }
 
@@ -919,7 +772,6 @@ a{
 
 .success-grid p{
   color:#999;
-
   line-height:1.55;
 }
 
@@ -930,15 +782,12 @@ a{
 
 .faq{
   display:grid;
-
   grid-template-columns:.7fr 1.3fr;
-
   gap:90px;
 }
 
 .accord details{
   border-top:1px solid #333;
-
   padding:25px 0;
 }
 
@@ -948,21 +797,17 @@ a{
 
 .accord summary{
   cursor:pointer;
-
   list-style:none;
 
   font-size:18px;
-
   font-weight:700;
 
   display:flex;
-
   justify-content:space-between;
 }
 
 .accord p{
   color:#aaa;
-
   line-height:1.65;
 }
 
@@ -976,20 +821,19 @@ a{
 
   padding:135px 20px;
 
-  background:radial-gradient(
-    circle at 50% 115%,
-    #77121a,
-    #090b0d 50%
-  );
+  background:
+    radial-gradient(
+      circle at 50% 115%,
+      #77121a,
+      #090b0d 50%
+    );
 
   border-top:1px solid rgba(255,255,255,.05);
 }
 
 .contact h2{
   font-size:clamp(48px,5.5vw,76px);
-
   line-height:.96;
-
   margin:17px;
 }
 
@@ -1012,13 +856,11 @@ footer{
   border-top:1px solid #222;
 
   display:flex;
-
   align-items:center;
 
   gap:30px;
 
   color:#777;
-
   font-size:12px;
 }
 
@@ -1028,40 +870,37 @@ footer img{
 
 footer div{
   margin-left:auto;
-
   display:flex;
-
   gap:20px;
 }
 
 footer a{
   color:#aaa;
-
   text-decoration:none;
 }
 
 
 /* =========================================================
-   REVEAL ANIMATION
+   ANIMATION
    ========================================================= */
 
 .reveal{
   opacity:0;
-
   transform:translateY(22px);
 
-  transition:.75s cubic-bezier(.2,.8,.2,1);
+  transition:
+    .75s
+    cubic-bezier(.2,.8,.2,1);
 }
 
 .reveal.show{
   opacity:1;
-
   transform:none;
 }
 
 
 /* =========================================================
-   BIS 1100 PX
+   TABLET
    ========================================================= */
 
 @media(max-width:1100px){
@@ -1078,6 +917,14 @@ footer a{
     display:none;
   }
 
+  .hero-copy{
+    max-width:600px;
+  }
+
+  .proof{
+    max-width:560px;
+  }
+
   .quick{
     right:8px;
   }
@@ -1085,15 +932,15 @@ footer a{
 
 
 /* =========================================================
-   TABLET / IPAD
+   IPAD / KLEINERE TABLETS
    ========================================================= */
 
 @media(max-width:900px){
 
   .topbar{
     height:78px;
-
     padding:0 22px;
+    position:absolute;
   }
 
   .logo img{
@@ -1111,7 +958,6 @@ footer a{
     margin-left:auto;
 
     background:none;
-
     border:0;
 
     color:#fff;
@@ -1131,44 +977,34 @@ footer a{
       115px;
 
     align-items:flex-end;
-  }
-
-  .hero-media{
-    top:78px;
-
-    left:0;
-    right:0;
-
-    width:100%;
 
     background-size:cover;
 
-    background-position:65% center;
+    /*
+      Auf Tablet wird das Auto etwas stärker
+      in den sichtbaren Bereich geschoben.
+    */
+    background-position:62% center;
   }
 
-  .hero::after{
+  .hero:after{
     background:
 
       linear-gradient(
         0deg,
 
-        rgba(5,6,7,.90) 0%,
-
-        rgba(5,6,7,.70) 32%,
-
-        rgba(5,6,7,.28) 65%,
-
-        rgba(5,6,7,.04) 100%
+        rgba(5,6,7,.96) 0%,
+        rgba(5,6,7,.78) 34%,
+        rgba(5,6,7,.36) 65%,
+        rgba(5,6,7,.06) 100%
       ),
 
       linear-gradient(
         90deg,
 
-        rgba(5,6,7,.62) 0%,
-
-        rgba(5,6,7,.35) 50%,
-
-        rgba(5,6,7,.05) 100%
+        rgba(5,6,7,.72) 0%,
+        rgba(5,6,7,.38) 55%,
+        rgba(5,6,7,.08) 100%
       );
   }
 
@@ -1189,19 +1025,16 @@ footer a{
   }
 
 
-  /* FÜHRERSCHEINKLASSEN */
+  /* KLASSEN */
 
   .classes-reference{
     aspect-ratio:auto;
-
     min-height:760px;
-
     overflow:hidden;
   }
 
-  .classes-reference > img{
+  .classes-reference>img{
     width:205%;
-
     max-width:none;
 
     left:50%;
@@ -1223,13 +1056,16 @@ footer a{
 
   /* ABLAUF */
 
+  .journey{
+    padding-top:64px;
+  }
+
   .steps{
     grid-template-columns:1fr 1fr;
-
     gap:36px;
   }
 
-  .steps::before{
+  .steps:before{
     display:none;
   }
 
@@ -1261,7 +1097,6 @@ footer a{
 
   .faq{
     grid-template-columns:1fr;
-
     gap:20px;
   }
 }
@@ -1280,9 +1115,7 @@ footer a{
       112px
       20px
       95px;
-  }
 
-  .hero-media{
     background-position:64% center;
   }
 
@@ -1304,9 +1137,7 @@ footer a{
 
   .proof{
     display:grid;
-
     grid-template-columns:1fr 1fr;
-
     gap:18px;
   }
 
@@ -1314,26 +1145,23 @@ footer a{
     font-size:18px;
   }
 
+  .scroll{
+    display:none;
+  }
 
-  /* Klassen */
+
+  /* KLASSEN */
 
   .classes-reference{
     min-height:560px;
   }
 
-  .classes-reference > img{
+  .classes-reference>img{
     width:245%;
   }
 
 
-  /* Ablauf */
-
-  .steps{
-    grid-template-columns:1fr;
-  }
-
-
-  /* Sections */
+  /* CONTENT */
 
   .section-title h2,
   .split h2,
@@ -1347,12 +1175,16 @@ footer a{
     padding:82px 22px;
   }
 
+  .journey{
+    padding-top:64px;
+  }
 
-  /* Über uns */
+  .steps{
+    grid-template-columns:1fr;
+  }
 
   .visual{
     padding:46px 24px;
-
     min-height:430px;
   }
 
@@ -1364,9 +1196,6 @@ footer a{
     padding:72px 24px;
   }
 
-
-  /* Kontakt */
-
   .contact{
     padding:95px 20px;
   }
@@ -1375,20 +1204,12 @@ footer a{
     font-size:44px;
   }
 
-
-  /* Footer */
-
   footer{
     flex-direction:column;
-
     align-items:flex-start;
   }
 
   footer div{
     margin-left:0;
-  }
-
-  .scroll{
-    display:none;
   }
 }

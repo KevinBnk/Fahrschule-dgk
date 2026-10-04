@@ -1,157 +1,149 @@
-:root {
-  --red: #ed1c24;
-  --red2: #ff3138;
-  --bg: #050607;
-  --panel: #0d1013;
-  --line: rgba(255,255,255,.12);
-  --muted: #a8adb3;
-  --white: #f7f7f5;
+:root{
+  --red:#ed1c24;
+  --red2:#ff3138;
+  --bg:#050607;
+  --panel:#0d1013;
+  --line:rgba(255,255,255,.12);
+  --muted:#a8adb3;
+  --white:#f7f7f5;
 }
 
-/* =========================
-   BASIS
-   ========================= */
-
-* {
-  box-sizing: border-box;
+*{
+  box-sizing:border-box;
 }
 
-html {
-  scroll-behavior: smooth;
+html{
+  scroll-behavior:smooth;
 }
 
-body {
-  margin: 0;
-  background: var(--bg);
-  color: var(--white);
-  font-family: Inter, Arial, sans-serif;
-  overflow-x: hidden;
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--white);
+  font-family:Inter,Arial,sans-serif;
+  overflow-x:hidden;
 }
 
-a {
-  color: inherit;
+a{
+  color:inherit;
 }
 
 
-/* =========================
-   NAVIGATION
-   ========================= */
+/* =========================================================
+   HEADER / NAVIGATION
+   ========================================================= */
 
-.topbar {
-  height: 94px;
-  display: flex;
-  align-items: center;
+.topbar{
+  height:94px;
+  display:flex;
+  align-items:center;
+  padding:0 clamp(24px,6vw,92px);
 
-  padding: 0 clamp(24px, 6vw, 92px);
+  position:absolute;
+  top:0;
+  left:0;
 
-  position: absolute;
-  top: 0;
-  left: 0;
+  z-index:20;
+  width:100%;
 
-  z-index: 20;
-
-  width: 100%;
-
-  border-bottom: 1px solid rgba(255,255,255,.08);
+  border-bottom:1px solid rgba(255,255,255,.08);
 
   background:
     linear-gradient(
       180deg,
-      rgba(4,5,6,.96),
-      rgba(4,5,6,.84)
+      rgba(4,5,6,.94),
+      rgba(4,5,6,.78)
     );
 
-  backdrop-filter: blur(18px);
+  backdrop-filter:blur(18px);
 }
 
-.logo img {
-  width: 235px;
-  display: block;
+.logo img{
+  width:235px;
+  display:block;
 }
 
-.topbar nav {
-  display: flex;
-  gap: clamp(18px, 2.3vw, 38px);
-  margin: auto;
+.topbar nav{
+  display:flex;
+  gap:clamp(18px,2.3vw,38px);
+  margin:auto;
 }
 
-.topbar a {
-  text-decoration: none;
-  font-size: 14px;
-  font-weight: 700;
+.topbar a{
+  text-decoration:none;
+  font-size:14px;
+  font-weight:700;
 }
 
-.topbar nav a {
-  position: relative;
-  color: #eee;
+.topbar nav a{
+  position:relative;
+  color:#eee;
 }
 
-.topbar nav a::after {
-  content: "";
+.topbar nav a::after{
+  content:"";
+  position:absolute;
 
-  position: absolute;
+  left:0;
+  right:100%;
+  bottom:-9px;
 
-  left: 0;
-  right: 100%;
-  bottom: -9px;
+  height:2px;
 
-  height: 2px;
+  background:var(--red);
 
-  background: var(--red);
-
-  transition: .25s;
+  transition:.25s;
 }
 
-.topbar nav a:hover::after {
-  right: 0;
+.topbar nav a:hover::after{
+  right:0;
 }
 
-.head-actions {
-  display: flex;
-  align-items: center;
-  gap: 22px;
+.head-actions{
+  display:flex;
+  align-items:center;
+  gap:22px;
 
-  font-size: 14px;
+  font-size:14px;
 }
 
-.head-actions span {
-  color: #ddd;
+.head-actions span{
+  color:#ddd;
 }
 
-.menu {
-  display: none;
+.menu{
+  display:none;
 }
 
 
-/* =========================
+/* =========================================================
    BUTTONS
-   ========================= */
+   ========================================================= */
 
-.btn {
-  display: inline-flex;
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
 
-  align-items: center;
-  justify-content: center;
+  padding:17px 25px;
 
-  padding: 17px 25px;
+  border-radius:4px;
 
-  border-radius: 4px;
+  text-decoration:none !important;
 
-  text-decoration: none !important;
+  font-weight:800 !important;
 
-  font-weight: 800 !important;
+  transition:.25s;
 
-  transition: .25s;
-
-  border: 1px solid transparent;
+  border:1px solid transparent;
 }
 
-.btn:hover {
-  transform: translateY(-2px);
+.btn:hover{
+  transform:translateY(-2px);
 }
 
 .btn.red,
-.red {
+.red{
   background:
     linear-gradient(
       135deg,
@@ -159,131 +151,132 @@ a {
       #d80d16
     );
 
-  color: #fff !important;
+  color:#fff !important;
 
   box-shadow:
     0 14px 44px rgba(237,28,36,.25);
 }
 
 .btn.outline,
-.outline {
-  border-color: rgba(255,255,255,.27);
+.outline{
+  border-color:rgba(255,255,255,.27);
 
-  background: rgba(8,10,12,.34);
+  background:rgba(8,10,12,.34);
 
-  color: #fff !important;
+  color:#fff !important;
 
-  backdrop-filter: blur(8px);
+  backdrop-filter:blur(8px);
 }
 
-.white {
-  background: #fff;
-  color: #090a0c !important;
+.white{
+  background:#fff;
+  color:#090a0c !important;
 }
 
 
-/* ==========================================================
+/* =========================================================
    HERO
    FOTO LÄUFT ÜBER DIE KOMPLETTE BREITE
-   ========================================================== */
+   ========================================================= */
 
-.hero {
-  position: relative;
+.hero{
+  position:relative;
 
-  width: 100%;
-  min-height: 850px;
+  width:100%;
 
-  display: flex;
-  align-items: center;
+  min-height:850px;
+
+  display:flex;
+  align-items:center;
 
   padding:
     165px
-    clamp(24px, 7vw, 108px)
+    clamp(24px,7vw,108px)
     145px;
 
-  overflow: hidden;
+  overflow:hidden;
 
-  background: #050607;
+  background:#050607;
 }
 
 
-/* FOTO */
+/* =========================================================
+   HERO FOTO
+   ========================================================= */
 
-.hero .hero-media {
-  position: absolute;
-
-  top: 94px;
-  bottom: 0;
-
-  left: 0;
-  right: 0;
-
-  width: 100%;
-  height: auto;
-
-  z-index: 0;
-
-  background-image:
-    url("Hero-Header.jpeg");
+.hero-media{
+  position:absolute;
 
   /*
-     WICHTIG:
-     Das Foto füllt den kompletten Hero
-     von links bis rechts.
+     Navigation bleibt oben.
+     Das Foto beginnt direkt darunter.
   */
 
-  background-size: cover;
+  top:94px;
+  left:0;
+  right:0;
+  bottom:0;
 
-  background-position: center center;
+  width:100%;
 
-  background-repeat: no-repeat;
+  z-index:0;
 
-  transform: none;
-  filter: none;
+  background-image:url("Hero-Header.jpeg");
 
-  opacity: 1;
+  /*
+     Cover = komplette Hero-Fläche.
+     Keine rechte Bildbox mehr.
+  */
+
+  background-size:cover;
+
+  /*
+     Motiv leicht nach rechts.
+     Dadurch bleibt das Auto rechts,
+     aber das Foto läuft trotzdem links weiter.
+  */
+
+  background-position:68% center;
+
+  background-repeat:no-repeat;
+
+  opacity:1;
+
+  filter:none;
+
+  transform:none;
 }
 
 
-/* alte Overlay-Ebene deaktivieren */
+/* keine zweite Abdunklung auf hero-media */
 
-.hero .hero-media::after {
-  display: none;
+.hero-media::after{
+  display:none;
 }
 
 
-/* alter Glow deaktiviert */
+/* alten Glow aus HTML deaktivieren */
 
-.hero .shade {
-  display: none;
+.hero .shade{
+  display:none;
 }
 
 
-/* =========================
-   HERO VERLAUF
-   ========================= */
+/* =========================================================
+   HERO DUNKLER VERLAUF
+   Das Foto liegt auch links darunter!
+   ========================================================= */
 
-/*
-   Das FOTO liegt weiterhin
-   hinter dem gesamten Header.
+.hero::after{
+  content:"";
 
-   Links wird es lediglich
-   dunkel überlagert.
-*/
+  position:absolute;
 
-.hero::after {
-  content: "";
+  inset:0;
 
-  position: absolute;
+  z-index:1;
 
-  top: 94px;
-  bottom: 0;
-  left: 0;
-  right: 0;
-
-  z-index: 1;
-
-  pointer-events: none;
+  pointer-events:none;
 
   background:
 
@@ -292,17 +285,17 @@ a {
 
       rgba(5,6,7,.97) 0%,
 
-      rgba(5,6,7,.91) 13%,
+      rgba(5,6,7,.94) 15%,
 
-      rgba(5,6,7,.79) 25%,
+      rgba(5,6,7,.88) 25%,
 
-      rgba(5,6,7,.58) 37%,
+      rgba(5,6,7,.70) 36%,
 
-      rgba(5,6,7,.31) 49%,
+      rgba(5,6,7,.42) 48%,
 
-      rgba(5,6,7,.10) 63%,
+      rgba(5,6,7,.18) 60%,
 
-      rgba(5,6,7,.02) 76%,
+      rgba(5,6,7,.05) 75%,
 
       rgba(5,6,7,0) 100%
     ),
@@ -310,421 +303,393 @@ a {
     linear-gradient(
       0deg,
 
-      rgba(5,6,7,.42) 0%,
+      rgba(5,6,7,.55) 0%,
 
-      rgba(5,6,7,.14) 24%,
+      rgba(5,6,7,.18) 25%,
 
-      rgba(5,6,7,0) 45%
+      transparent 45%
     );
 }
 
 
-/* =========================
+/* =========================================================
    HERO TEXT
-   ========================= */
+   ========================================================= */
 
-.hero-copy {
-  position: relative;
+.hero-copy{
+  position:relative;
 
-  z-index: 3;
+  z-index:3;
 
-  max-width: 690px;
+  max-width:690px;
 }
 
-.eyebrow {
-  color: #ff3b42;
+.eyebrow{
+  color:#ff3b42;
 
-  font-weight: 800;
+  font-weight:800;
 
-  letter-spacing: .23em;
+  letter-spacing:.23em;
 
-  font-size: 12px;
+  font-size:12px;
 
-  text-transform: uppercase;
+  text-transform:uppercase;
 }
 
-.hero h1 {
-  font-size:
-    clamp(66px, 6.3vw, 98px);
+.hero h1{
+  font-size:clamp(66px,6.3vw,98px);
 
-  line-height: .89;
+  line-height:.89;
 
-  margin:
-    22px 0 30px;
+  margin:22px 0 30px;
 
-  letter-spacing: -.065em;
+  letter-spacing:-.065em;
 }
 
 .hero h1 em,
 .section-title em,
-.contact em {
-  font-style: normal;
+.contact em{
+  font-style:normal;
 
-  color: var(--red);
+  color:var(--red);
 }
 
-.lead {
-  font-size: 20px;
+.lead{
+  font-size:20px;
 
-  line-height: 1.6;
+  line-height:1.6;
 
-  color: #d3d5d7;
+  color:#d3d5d7;
 
-  max-width: 620px;
+  max-width:620px;
 }
 
-.actions {
-  display: flex;
+.actions{
+  display:flex;
 
-  gap: 14px;
+  gap:14px;
 
-  margin:
-    34px 0;
-}
-
-
-/* =========================
-   HERO INFOS
-   ========================= */
-
-.proof {
-  display: flex;
-
-  flex-wrap: wrap;
-
-  gap:
-    18px 30px;
-
-  margin-top: 38px;
-
-  font-size: 12px;
-
-  color: #d8d8d8;
-}
-
-.proof span {
-  display: flex;
-
-  gap: 10px;
-
-  align-items: center;
-}
-
-.proof b {
-  font-size: 21px;
-
-  color: #fff;
+  margin:34px 0;
 }
 
 
-/* =========================
-   SCROLL
-   ========================= */
+/* =========================================================
+   HERO VORTEILE
+   ========================================================= */
 
-.scroll {
-  position: absolute;
+.proof{
+  display:flex;
 
-  z-index: 4;
+  flex-wrap:wrap;
 
-  bottom: 28px;
+  gap:18px 30px;
 
-  left: 50%;
+  margin-top:38px;
 
-  transform:
-    translateX(-50%);
+  font-size:12px;
 
-  color: #fff;
-
-  text-decoration: none;
-
-  text-align: center;
-
-  opacity: .72;
+  color:#d8d8d8;
 }
 
-.scroll small {
-  display: block;
+.proof span{
+  display:flex;
 
-  font-size: 8px;
+  gap:10px;
 
-  letter-spacing: .2em;
+  align-items:center;
+}
 
-  color: #aaa;
+.proof b{
+  font-size:21px;
 
-  margin-top: 6px;
+  color:#fff;
 }
 
 
-/* =========================
-   QUICK CONTACT
-   ========================= */
+/* =========================================================
+   SCROLL HINWEIS
+   ========================================================= */
 
-.quick {
-  position: fixed;
+.scroll{
+  position:absolute;
 
-  z-index: 30;
+  z-index:4;
 
-  right: 14px;
+  bottom:28px;
 
-  top: 50%;
+  left:50%;
 
-  transform:
-    translateY(-50%);
+  transform:translateX(-50%);
 
-  background:
-    rgba(12,15,18,.84);
+  color:#fff;
 
-  border:
-    1px solid var(--line);
+  text-decoration:none;
 
-  backdrop-filter:
-    blur(14px);
+  text-align:center;
 
-  border-radius: 8px;
+  opacity:.72;
+}
 
-  overflow: hidden;
+.scroll small{
+  display:block;
+
+  font-size:8px;
+
+  letter-spacing:.2em;
+
+  color:#aaa;
+
+  margin-top:6px;
+}
+
+
+/* =========================================================
+   RECHTE KONTAKTLEISTE
+   ========================================================= */
+
+.quick{
+  position:fixed;
+
+  z-index:30;
+
+  right:14px;
+
+  top:50%;
+
+  transform:translateY(-50%);
+
+  background:rgba(12,15,18,.84);
+
+  border:1px solid var(--line);
+
+  backdrop-filter:blur(14px);
+
+  border-radius:8px;
+
+  overflow:hidden;
 
   box-shadow:
     0 18px 60px rgba(0,0,0,.35);
 }
 
-.quick a {
-  width: 68px;
+.quick a{
+  width:68px;
+  height:68px;
 
-  height: 68px;
+  color:#fff;
 
-  color: #fff;
+  text-decoration:none;
 
-  text-decoration: none;
+  display:flex;
 
-  display: flex;
+  flex-direction:column;
 
-  flex-direction: column;
+  align-items:center;
 
-  align-items: center;
-
-  justify-content: center;
+  justify-content:center;
 
   border-bottom:
     1px solid rgba(255,255,255,.08);
 
-  gap: 6px;
+  gap:6px;
 }
 
-.quick a:last-child {
-  border: 0;
+.quick a:last-child{
+  border:0;
 }
 
-.quick a:hover {
-  background:
-    rgba(237,28,36,.14);
+.quick a:hover{
+  background:rgba(237,28,36,.14);
 }
 
-.quick span {
-  font-size: 9px;
+.quick span{
+  font-size:9px;
 }
 
 
-/* ==========================================================
-   FÜHRERSCHEINKLASSEN REFERENZBEREICH
-   ========================================================== */
+/* =========================================================
+   FÜHRERSCHEINKLASSEN REFERENZBILD
+   ========================================================= */
 
-.classes-reference {
-  position: relative;
+.classes-reference{
+  position:relative;
 
-  width: 100%;
+  width:100%;
 
-  overflow: hidden;
+  overflow:hidden;
 
-  background: #050607;
+  background:#050607;
 
-  aspect-ratio: 2048 / 740;
+  aspect-ratio:2048/740;
 
   border-top:
     1px solid rgba(255,255,255,.05);
 }
 
-.classes-reference > img {
-  display: block;
+.classes-reference > img{
+  display:block;
 
-  width: 100%;
+  position:absolute;
 
-  height: auto;
+  top:0;
+  left:0;
 
-  position: absolute;
+  width:100%;
 
-  top: 0;
-  left: 0;
+  height:auto;
 }
 
+.class-hotspot{
+  position:absolute;
 
-/* klickbare Bereiche */
+  z-index:4;
 
-.class-hotspot {
-  position: absolute;
+  bottom:4%;
 
-  z-index: 4;
+  height:49%;
 
-  bottom: 4%;
-
-  height: 49%;
-
-  border-radius: 3px;
+  border-radius:3px;
 }
 
-.hotspot-auto {
-  left: 3.5%;
-  width: 31%;
+.hotspot-auto{
+  left:3.5%;
+
+  width:31%;
 }
 
-.hotspot-bike {
-  left: 35.7%;
-  width: 28.7%;
+.hotspot-bike{
+  left:35.7%;
+
+  width:28.7%;
 }
 
-.hotspot-trailer {
-  left: 65.8%;
-  width: 30.8%;
+.hotspot-trailer{
+  left:65.8%;
+
+  width:30.8%;
 }
 
-.class-hotspot:focus-visible {
+.class-hotspot:focus-visible{
   outline:
-    2px solid var(--red);
+    2px solid #ed1c24;
 
-  outline-offset: -4px;
+  outline-offset:-4px;
 }
 
 
-/* alte Klassenbereiche deaktiviert */
+/* =========================================================
+   TICKER
+   ========================================================= */
 
-.editorial,
-.classes {
-  display: none !important;
+.marquee{
+  width:100%;
+
+  height:72px;
+
+  display:flex;
+
+  align-items:center;
+
+  overflow:hidden;
+
+  background:#ed1c24;
 }
 
+.marquee-track{
+  display:flex;
 
-/* =========================
-   MARQUEE / ROTER BANNER
-   ========================= */
+  flex:none;
 
-.marquee {
-  width: 100%;
+  width:max-content;
 
-  margin: 0;
+  min-width:max-content;
 
-  padding: 0;
+  white-space:nowrap;
 
-  height: 72px;
-
-  display: flex;
-
-  align-items: center;
-
-  overflow: hidden;
-
-  background: var(--red);
-
-  border: 0;
-
-  position: relative;
-
-  z-index: 10;
-}
-
-.marquee .marquee-track {
-  display: flex;
-
-  flex: none;
-
-  width: max-content;
-
-  min-width: max-content;
-
-  white-space: nowrap;
-
-  will-change: transform;
+  will-change:transform;
 
   animation:
-    marqueeLoop 24s linear infinite;
+    marqueeLoop
+    24s
+    linear
+    infinite;
 }
 
-.marquee .marquee-track span {
-  display: block;
+.marquee-track span{
+  display:block;
 
-  flex: none;
+  flex:none;
 
-  font-weight: 900;
+  font-weight:900;
 
-  font-size:
-    clamp(20px, 2.2vw, 34px);
+  font-size:clamp(20px,2.2vw,34px);
 
-  line-height: 1;
+  line-height:1;
 
-  color: #fff;
+  color:#fff;
 }
 
-@keyframes marqueeLoop {
+@keyframes marqueeLoop{
 
-  from {
-    transform:
-      translateX(0);
+  from{
+    transform:translateX(0);
   }
 
-  to {
-    transform:
-      translateX(-50%);
+  to{
+    transform:translateX(-50%);
   }
 }
 
 
-/* ==========================================================
-   DEIN WEG / ABLAUF
-   ========================================================== */
+/* =========================================================
+   ABLAUF
+   ========================================================= */
 
-.journey {
+.journey,
+.success,
+.faq{
   padding:
-    90px
-    clamp(24px, 7vw, 108px)
-    125px;
+    125px
+    clamp(24px,7vw,108px);
+}
+
+.journey{
+  padding-top:90px;
 }
 
 .section-title h2,
 .split h2,
-.faq h2 {
+.faq h2{
   font-size:
-    clamp(40px, 4.2vw, 62px);
+    clamp(40px,4.2vw,62px);
 
-  letter-spacing: -.05em;
+  letter-spacing:-.05em;
 
   margin:
     15px 0 52px;
 }
 
-
-/* =========================
-   SCHRITTE
-   ========================= */
-
-.steps {
-  display: grid;
+.steps{
+  display:grid;
 
   grid-template-columns:
-    repeat(5, 1fr);
+    repeat(5,1fr);
 
-  position: relative;
+  position:relative;
 }
 
-.steps::before {
-  content: "";
+.steps::before{
+  content:"";
 
-  position: absolute;
+  position:absolute;
 
-  top: 44px;
+  top:44px;
 
-  left: 8%;
-  right: 8%;
+  left:8%;
 
-  height: 1px;
+  right:8%;
+
+  height:1px;
 
   background:
     linear-gradient(
@@ -736,80 +701,78 @@ a {
     );
 }
 
-.steps article {
-  position: relative;
+.steps article{
+  position:relative;
 
-  padding:
-    0 22px;
+  padding:0 22px;
 }
 
-.steps i {
-  color: var(--red);
+.steps i{
+  color:var(--red);
 
-  font-style: normal;
+  font-style:normal;
 
-  font-weight: 800;
+  font-weight:800;
 }
 
-.steps b {
-  width: 74px;
-
-  height: 74px;
+.steps b{
+  width:74px;
+  height:74px;
 
   border:
     1px solid #394047;
 
-  border-radius: 50%;
+  border-radius:50%;
 
-  background: #101418;
+  background:#101418;
 
-  display: grid;
+  display:grid;
 
-  place-items: center;
+  place-items:center;
 
-  font-size: 25px;
+  font-size:25px;
 
   margin:
     12px 0 26px;
 
-  position: relative;
+  position:relative;
 
   box-shadow:
     0 0 0 8px #080a0c;
 }
 
-.steps h3 {
-  font-size: 18px;
+.steps h3{
+  font-size:18px;
 }
 
-.steps p {
-  color: #9da2a7;
+.steps p{
+  color:#9da2a7;
 
-  line-height: 1.6;
+  line-height:1.6;
 
-  font-size: 14px;
+  font-size:14px;
 }
 
 
-/* ==========================================================
+/* =========================================================
    ÜBER UNS
-   ========================================================== */
+   ========================================================= */
 
-.split {
-  display: grid;
+.split{
+  display:grid;
 
   grid-template-columns:
     1.05fr .95fr;
 
-  min-height: 680px;
+  min-height:680px;
 
-  background: #0c0f12;
+  background:#0c0f12;
 
   border-block:
     1px solid rgba(255,255,255,.06);
 }
 
-.visual {
+.visual{
   background:
     linear-gradient(
       135deg,
@@ -817,46 +780,45 @@ a {
       #080a0c
     );
 
-  display: flex;
+  display:flex;
 
-  flex-direction: column;
+  flex-direction:column;
 
-  justify-content: flex-end;
+  justify-content:flex-end;
 
-  padding: 72px;
+  padding:72px;
 
-  position: relative;
+  position:relative;
 
-  overflow: hidden;
+  overflow:hidden;
 }
 
-.visual::after {
-  content: "";
+.visual::after{
+  content:"";
 
-  position: absolute;
+  position:absolute;
 
-  width: 520px;
-
-  height: 520px;
+  width:520px;
+  height:520px;
 
   border:
     95px solid var(--red);
 
-  border-radius: 50%;
+  border-radius:50%;
 
-  right: -190px;
+  right:-190px;
 
-  top: -155px;
+  top:-155px;
 
-  opacity: .85;
+  opacity:.85;
 }
 
-.visual::before {
-  content: "";
+.visual::before{
+  content:"";
 
-  position: absolute;
+  position:absolute;
 
-  inset: 0;
+  inset:0;
 
   background:
 
@@ -875,77 +837,72 @@ a {
     54px 54px;
 }
 
-.visual span {
-  color: #777;
+.visual span{
+  color:#777;
 
-  letter-spacing: .3em;
+  letter-spacing:.3em;
 
-  z-index: 2;
+  z-index:2;
 }
 
-.visual strong {
-  font-size: 58px;
+.visual strong{
+  font-size:58px;
 
-  line-height: .94;
+  line-height:.94;
 
-  margin-top: 18px;
+  margin-top:18px;
 
-  z-index: 2;
+  z-index:2;
 
-  letter-spacing: -.04em;
+  letter-spacing:-.04em;
 }
 
-.copy {
-  padding:
-    100px 11%;
+.copy{
+  padding:100px 11%;
 
-  align-self: center;
+  align-self:center;
 }
 
-.copy p {
-  color: #aeb2b5;
+.copy p{
+  color:#aeb2b5;
 
-  line-height: 1.78;
+  line-height:1.78;
 }
 
-.text-link {
-  color: #fff;
+.text-link{
+  color:#fff;
 
-  font-weight: 800;
+  font-weight:800;
 
-  text-decoration: none;
+  text-decoration:none;
 
-  display: inline-block;
+  display:inline-block;
 
-  margin-top: 20px;
+  margin-top:20px;
 }
 
 
-/* ==========================================================
+/* =========================================================
    ERFOLGE
-   ========================================================== */
+   ========================================================= */
 
-.success {
-  padding:
-    125px
-    clamp(24px, 7vw, 108px);
-
-  background: #07090b;
+.success{
+  background:#07090b;
 }
 
-.success-grid {
-  display: grid;
+.success-grid{
+  display:grid;
 
   grid-template-columns:
-    repeat(3, 1fr);
+    repeat(3,1fr);
 
-  gap: 18px;
+  gap:18px;
 }
 
-.success-grid article {
-  min-height: 300px;
+.success-grid article{
+  min-height:300px;
 
-  padding: 34px;
+  padding:34px;
 
   border:
     1px solid #262b30;
@@ -957,51 +914,57 @@ a {
       #0b0d0f
     );
 
-  display: flex;
+  display:flex;
 
-  flex-direction: column;
+  flex-direction:column;
 
-  justify-content: flex-end;
+  justify-content:flex-end;
 
-  transition: .3s;
+  transition:.3s;
 }
 
-.success-grid article:hover {
-  border-color: #713036;
+.success-grid article:hover{
+  border-color:#713036;
 
   transform:
     translateY(-5px);
 }
 
-.success-grid strong {
-  font-size: 29px;
+.success-grid article:nth-child(2){
+  transform:
+    translateY(28px);
 }
 
-.success-grid p {
-  color: #999;
+.success-grid article:nth-child(2):hover{
+  transform:
+    translateY(22px);
+}
 
-  line-height: 1.55;
+.success-grid strong{
+  font-size:29px;
+}
+
+.success-grid p{
+  color:#999;
+
+  line-height:1.55;
 }
 
 
-/* ==========================================================
+/* =========================================================
    FAQ
-   ========================================================== */
+   ========================================================= */
 
-.faq {
-  padding:
-    125px
-    clamp(24px, 7vw, 108px);
-
-  display: grid;
+.faq{
+  display:grid;
 
   grid-template-columns:
     .7fr 1.3fr;
 
-  gap: 90px;
+  gap:90px;
 }
 
-.accord details {
+.accord details{
   border-top:
     1px solid #333;
 
@@ -1009,38 +972,38 @@ a {
     25px 0;
 }
 
-.accord details:last-child {
+.accord details:last-child{
   border-bottom:
     1px solid #333;
 }
 
-.accord summary {
-  cursor: pointer;
+.accord summary{
+  cursor:pointer;
 
-  list-style: none;
+  list-style:none;
 
-  font-size: 18px;
+  font-size:18px;
 
-  font-weight: 700;
+  font-weight:700;
 
-  display: flex;
+  display:flex;
 
-  justify-content: space-between;
+  justify-content:space-between;
 }
 
-.accord p {
-  color: #aaa;
+.accord p{
+  color:#aaa;
 
-  line-height: 1.65;
+  line-height:1.65;
 }
 
 
-/* ==========================================================
+/* =========================================================
    KONTAKT
-   ========================================================== */
+   ========================================================= */
 
-.contact {
-  text-align: center;
+.contact{
+  text-align:center;
 
   padding:
     135px 20px;
@@ -1056,72 +1019,72 @@ a {
     1px solid rgba(255,255,255,.05);
 }
 
-.contact h2 {
+.contact h2{
   font-size:
-    clamp(48px, 5.5vw, 76px);
+    clamp(48px,5.5vw,76px);
 
-  line-height: .96;
+  line-height:.96;
 
-  margin: 17px;
+  margin:17px;
 }
 
-.contact p {
-  color: #aaa;
+.contact p{
+  color:#aaa;
 }
 
-.contact .actions {
-  justify-content: center;
+.contact .actions{
+  justify-content:center;
 }
 
 
-/* ==========================================================
+/* =========================================================
    FOOTER
-   ========================================================== */
+   ========================================================= */
 
-footer {
+footer{
   padding:
     52px
-    clamp(24px, 7vw, 108px);
+    clamp(24px,7vw,108px);
 
   border-top:
     1px solid #222;
 
-  display: flex;
+  display:flex;
 
-  align-items: center;
+  align-items:center;
 
-  gap: 30px;
+  gap:30px;
 
-  color: #777;
+  color:#777;
 
-  font-size: 12px;
+  font-size:12px;
 }
 
-footer img {
-  width: 185px;
+footer img{
+  width:185px;
 }
 
-footer div {
-  margin-left: auto;
+footer div{
+  margin-left:auto;
 
-  display: flex;
+  display:flex;
 
-  gap: 20px;
+  gap:20px;
 }
 
-footer a {
-  color: #aaa;
+footer a{
+  color:#aaa;
 
-  text-decoration: none;
+  text-decoration:none;
 }
 
 
-/* ==========================================================
-   ANIMATION
-   ========================================================== */
+/* =========================================================
+   SCROLL ANIMATION
+   ========================================================= */
 
-.reveal {
-  opacity: 0;
+.reveal{
+  opacity:0;
 
   transform:
     translateY(22px);
@@ -1130,246 +1093,228 @@ footer a {
     .75s cubic-bezier(.2,.8,.2,1);
 }
 
-.reveal.show {
-  opacity: 1;
+.reveal.show{
+  opacity:1;
 
-  transform: none;
+  transform:none;
 }
 
 
-/* ==========================================================
-   TABLET / IPAD
-   ========================================================== */
+/* =========================================================
+   TABLET
+   ========================================================= */
 
-@media (max-width: 1100px) {
+@media(max-width:1100px){
 
-  .topbar nav {
-    gap: 18px;
+  .topbar nav{
+    gap:18px;
   }
 
-  .topbar nav a {
-    font-size: 13px;
+  .topbar nav a{
+    font-size:13px;
   }
 
-  .head-actions span {
-    display: none;
+  .head-actions span{
+    display:none;
   }
 
-  .hero-copy {
-    max-width: 600px;
-  }
-
-  .proof {
-    max-width: 560px;
-  }
-
-  .quick {
-    right: 8px;
+  .quick{
+    right:8px;
   }
 }
 
 
-@media (max-width: 900px) {
+@media(max-width:900px){
 
-  /* Navigation */
-
-  .topbar {
-    height: 78px;
+  .topbar{
+    height:78px;
 
     padding:
       0 22px;
   }
 
-  .logo img {
-    width: 185px;
+  .logo img{
+    width:185px;
   }
 
   .topbar nav,
-  .head-actions {
-    display: none;
+  .head-actions{
+    display:none;
   }
 
-  .menu {
-    display: block;
+  .menu{
+    display:block;
 
-    margin-left: auto;
+    margin-left:auto;
 
-    background: none;
+    background:none;
 
-    border: 0;
+    border:0;
 
-    color: #fff;
+    color:#fff;
 
-    font-size: 25px;
+    font-size:25px;
   }
 
 
-  /* HERO */
+  /* HERO TABLET */
 
-  .hero {
-    min-height: 780px;
+  .hero{
+    min-height:780px;
 
     padding:
       125px
       25px
       115px;
 
-    align-items: flex-end;
+    align-items:flex-end;
   }
 
-  .hero .hero-media {
-    top: 78px;
+  .hero-media{
+    top:78px;
 
-    left: 0;
-    right: 0;
+    left:0;
 
-    width: 100%;
+    right:0;
 
-    background-size: cover;
+    width:100%;
 
-    /*
-       Motiv auf Tablet etwas
-       weiter rechts.
-    */
+    background-size:cover;
 
     background-position:
-      62% center;
+      68% center;
   }
 
-
-  .hero::after {
-    top: 78px;
-
+  .hero::after{
     background:
 
       linear-gradient(
         0deg,
 
-        rgba(5,6,7,.95) 0%,
+        rgba(5,6,7,.97) 0%,
 
-        rgba(5,6,7,.72) 35%,
+        rgba(5,6,7,.88) 35%,
 
-        rgba(5,6,7,.20) 72%,
+        rgba(5,6,7,.40) 65%,
 
-        rgba(5,6,7,.04) 100%
+        rgba(5,6,7,.08) 100%
       ),
 
       linear-gradient(
         90deg,
 
-        rgba(5,6,7,.68) 0%,
+        rgba(5,6,7,.72) 0%,
 
-        rgba(5,6,7,.28) 55%,
+        rgba(5,6,7,.30) 65%,
 
-        rgba(5,6,7,0) 100%
+        rgba(5,6,7,.05) 100%
       );
   }
 
-
-  .hero-copy {
-    max-width: 650px;
+  .hero-copy{
+    max-width:650px;
   }
 
-  .hero h1 {
+  .hero h1{
     font-size:
-      clamp(56px, 10vw, 78px);
+      clamp(56px,10vw,78px);
   }
 
-  .lead {
-    font-size: 18px;
+  .lead{
+    font-size:18px;
   }
 
-
-  /* Kontaktleiste */
-
-  .quick {
-    display: none;
+  .quick{
+    display:none;
   }
 
 
-  /* Klassen */
+  /* KLASSEN */
 
-  .classes-reference {
-    aspect-ratio: auto;
+  .classes-reference{
+    aspect-ratio:auto;
 
-    min-height: 760px;
+    min-height:760px;
 
-    overflow: hidden;
+    overflow:hidden;
   }
 
-  .classes-reference > img {
-    width: 205%;
+  .classes-reference > img{
+    width:205%;
 
-    max-width: none;
+    max-width:none;
 
-    left: 50%;
+    left:50%;
 
     transform:
       translateX(-50%);
   }
 
-  .class-hotspot {
-    display: none;
+  .class-hotspot{
+    display:none;
   }
 
 
-  /* Banner */
+  /* ABLAUF */
 
-  .marquee {
-    height: 62px;
-  }
-
-
-  /* Schritte */
-
-  .steps {
+  .steps{
     grid-template-columns:
       1fr 1fr;
 
-    gap: 36px;
+    gap:36px;
   }
 
-  .steps::before {
-    display: none;
-  }
-
-
-  /* Über uns */
-
-  .split {
-    grid-template-columns: 1fr;
-  }
-
-  .visual {
-    min-height: 520px;
+  .steps::before{
+    display:none;
   }
 
 
-  /* Erfolge */
+  /* ÜBER UNS */
 
-  .success-grid {
-    grid-template-columns: 1fr;
+  .split{
+    grid-template-columns:1fr;
+  }
+
+  .visual{
+    min-height:520px;
+  }
+
+
+  /* ERFOLGE */
+
+  .success-grid{
+    grid-template-columns:1fr;
+  }
+
+  .success-grid article:nth-child(2),
+  .success-grid article:nth-child(2):hover{
+    transform:none;
   }
 
 
   /* FAQ */
 
-  .faq {
-    grid-template-columns: 1fr;
+  .faq{
+    grid-template-columns:1fr;
 
-    gap: 20px;
+    gap:20px;
+  }
+
+
+  .marquee{
+    height:62px;
   }
 }
 
 
-/* ==========================================================
+/* =========================================================
    SMARTPHONE
-   ========================================================== */
+   ========================================================= */
 
-@media (max-width: 560px) {
+@media(max-width:560px){
 
-  .hero {
-    min-height: 760px;
+  .hero{
+    min-height:760px;
 
     padding:
       112px
@@ -1377,90 +1322,86 @@ footer a {
       95px;
   }
 
-  .hero .hero-media {
+  .hero-media{
     background-position:
-      64% center;
+      65% center;
   }
 
-  .hero h1 {
-    font-size: 52px;
+  .hero h1{
+    font-size:52px;
   }
 
-  .lead {
-    font-size: 16px;
+  .lead{
+    font-size:16px;
   }
 
-  .actions {
-    flex-direction: column;
+  .actions{
+    flex-direction:column;
   }
 
-  .btn {
-    width: 100%;
+  .btn{
+    width:100%;
   }
 
-  .proof {
-    display: grid;
+  .proof{
+    display:grid;
 
     grid-template-columns:
       1fr 1fr;
 
-    gap: 18px;
+    gap:18px;
   }
 
-  .proof b {
-    font-size: 18px;
-  }
-
-  .scroll {
-    display: none;
+  .proof b{
+    font-size:18px;
   }
 
 
-  /* Klassen */
+  /* Führerscheinklassen */
 
-  .classes-reference {
-    min-height: 560px;
+  .classes-reference{
+    min-height:560px;
   }
 
-  .classes-reference > img {
-    width: 245%;
+  .classes-reference > img{
+    width:245%;
   }
 
 
-  /* Ablauf */
+  /* Sections */
 
-  .journey,
-  .success,
-  .faq {
-    padding:
-      82px 22px;
-  }
-
-  .steps {
-    grid-template-columns: 1fr;
+  .steps{
+    grid-template-columns:1fr;
   }
 
   .section-title h2,
   .split h2,
-  .faq h2 {
-    font-size: 39px;
+  .faq h2{
+    font-size:39px;
+  }
+
+  .journey,
+  .success,
+  .faq{
+    padding:
+      82px 22px;
   }
 
 
   /* Über uns */
 
-  .visual {
+  .visual{
     padding:
       46px 24px;
 
-    min-height: 430px;
+    min-height:430px;
   }
 
-  .visual strong {
-    font-size: 44px;
+  .visual strong{
+    font-size:44px;
   }
 
-  .copy {
+  .copy{
     padding:
       72px 24px;
   }
@@ -1468,25 +1409,29 @@ footer a {
 
   /* Kontakt */
 
-  .contact {
+  .contact{
     padding:
       95px 20px;
   }
 
-  .contact h2 {
-    font-size: 44px;
+  .contact h2{
+    font-size:44px;
   }
 
 
   /* Footer */
 
-  footer {
-    flex-direction: column;
+  footer{
+    flex-direction:column;
 
-    align-items: flex-start;
+    align-items:flex-start;
   }
 
-  footer div {
-    margin-left: 0;
+  footer div{
+    margin-left:0;
+  }
+
+  .scroll{
+    display:none;
   }
 }

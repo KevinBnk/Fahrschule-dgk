@@ -404,12 +404,15 @@
     }
 }
 
-/* HERO BILD – Desktop + iPad Querformat */
+/* HERO – komplettes Auto sichtbar */
 .hero .hero-media {
     width: 100% !important;
-    left: 20 !important;
-    right: auto !important;
+    left: 0 !important;
+    right: 20 !important;
 
+    background-image: url("Hero-Header.jpeg") !important;
     background-size: cover !important;
-    background-position: 100% center !important;
+    background-position: center center !important;
+    background-repeat: no-repeat !important;
+}
 }

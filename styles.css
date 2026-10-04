@@ -519,3 +519,81 @@
         background-position: 65% center !important;
     }
 }
+/* ===== HERO – VOLLE BREITE + KOMPLETTES AUTO ===== */
+
+.hero {
+    width: 100% !important;
+    min-height: 850px !important;
+    overflow: hidden !important;
+    background: #050607 !important;
+}
+
+.hero .hero-media {
+    position: absolute !important;
+
+    top: 94px !important;
+    bottom: 0 !important;
+
+    /* über die komplette Bildschirmbreite */
+    left: 0 !important;
+    right: 0 !important;
+    width: 100vw !important;
+    max-width: none !important;
+
+    background-image: url("Hero-Header.jpeg") !important;
+
+    /* komplette Bildhöhe wie aktuell */
+    background-size: auto 92% !important;
+
+    /* Bild ganz nach rechts setzen */
+    background-position: right center !important;
+
+    background-repeat: no-repeat !important;
+    background-color: #050607 !important;
+
+    transform: none !important;
+    filter: none !important;
+    opacity: 1 !important;
+}
+
+/* dunkler Verlauf links für gute Lesbarkeit */
+.hero::after {
+    content: "";
+    position: absolute;
+    inset: 0 !important;
+    z-index: 1 !important;
+    pointer-events: none;
+
+    background: linear-gradient(
+        90deg,
+        rgba(5,6,7,1) 0%,
+        rgba(5,6,7,.96) 15%,
+        rgba(5,6,7,.78) 30%,
+        rgba(5,6,7,.42) 45%,
+        rgba(5,6,7,.12) 62%,
+        rgba(5,6,7,0) 82%
+    ) !important;
+}
+
+.hero .hero-copy {
+    position: relative !important;
+    z-index: 3 !important;
+}
+
+.hero .scroll {
+    z-index: 4 !important;
+}
+
+@media (max-width: 900px) {
+
+    .hero {
+        min-height: 780px !important;
+    }
+
+    .hero .hero-media {
+        top: 78px !important;
+        width: 100vw !important;
+        background-size: auto 92% !important;
+        background-position: right center !important;
+    }
+}

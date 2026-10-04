@@ -435,12 +435,15 @@
 .hero .hero-media {
     background-position: calc(50% + 180px) center !important;
 }
-
-/* HERO – komplette Bildebene nach rechts verschieben */
+/* HERO – finale Bildposition */
 .hero .hero-media {
-    left: 160px !important;
-    right: -160px !important;
-    width: auto !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
 
-    background-position: center center !important;
+    background-size: auto 92% !important;
+    background-position: calc(50% + 250px) center !important;
+    background-repeat: no-repeat !important;
+    background-color: #050607 !important;
 }
+
